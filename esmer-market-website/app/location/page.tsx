@@ -1,4 +1,8 @@
 export default function LocationPage() {
+  // Location coordinates for Esmer Market
+  const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.048541565089!2d33.91362399999999!3d35.295954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDE3JzQ1LjQiTiAzM8KwNTQnNDkuMCJF!5e0!3m2!1sen!2s!4v1615680000000!5m2!1sen!2s";
+  const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Esmer+Market+Yenikent+Bulvarı+Yeni+Boğaziçi";
+  
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -63,7 +67,7 @@ export default function LocationPage() {
               
               <div>
                 <a 
-                  href="https://maps.google.com/?q=Yenikent+Bulvarı+Yeni+Boğaziçi" 
+                  href={directionsUrl}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
@@ -75,11 +79,17 @@ export default function LocationPage() {
             
             {/* Map */}
             <div className="space-y-6">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border bg-gray-100 shadow-md">
-                {/* Google Maps integration would go here */}
-                <div className="flex h-full items-center justify-center">
-                  <p className="text-gray-500">Map Loading...</p>
-                </div>
+              <div className="aspect-video w-full overflow-hidden rounded-xl border bg-gray-100 shadow-md h-96">
+                <iframe 
+                  src={mapEmbedUrl}
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Esmer Market Location"
+                ></iframe>
               </div>
               
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
