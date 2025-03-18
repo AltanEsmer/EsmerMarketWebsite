@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -33,11 +35,14 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-md relative">
-              {/* Replace with actual image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-gray-500 text-base">Store Image</span>
-              </div>
+            <div className="aspect-video overflow-hidden rounded-xl shadow-md relative">
+              <Image 
+                src="/images/market.png" 
+                alt="Esmer Market Storefront" 
+                width={600} 
+                height={400} 
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>
@@ -97,11 +102,14 @@ export default function AboutPage() {
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 md:grid-cols-2 items-center">
-            <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-md relative order-2 md:order-1">
-              {/* Replace with actual image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-gray-500 text-base">Team Image</span>
-              </div>
+            <div className="aspect-video overflow-hidden rounded-xl shadow-md relative order-2 md:order-1">
+              <Image 
+                src="/images/team.jpg" 
+                alt="Esmer Market Team" 
+                width={600} 
+                height={400} 
+                className="object-cover w-full h-full"
+              />
             </div>
             <div className="space-y-6 order-1 md:order-2">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900">Our Team</h2>

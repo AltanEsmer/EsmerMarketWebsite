@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "location": "Location & Hours",
+    "contact": "Contact",
+    "news": "News & Promotions",
+    "signin": "Sign In"
+  },
+  "footer": {
+    "description": "Your local grocery store for fresh produce, specialty items, and everyday essentials.",
+    "shop": "Shop",
+    "company": "Company",
+    "contact": "Contact",
+    "all_products": "All Products",
+    "fresh_produce": "Fresh Produce",
+    "bakery": "Bakery",
+    "dairy_cheese": "Dairy & Cheese",
+    "about_us": "About Us",
+    "location_hours": "Location & Hours",
+    "contact_us": "Contact Us",
+    "news_events": "News & Events",
+    "rights_reserved": "All rights reserved"
+  },
+  "language": {
+    "name": "English",
+    "switch": "Switch to Turkish"
+  }
+} 

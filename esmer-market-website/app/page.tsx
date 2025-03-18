@@ -140,7 +140,7 @@ export default function Home() {
                   </svg>
                   <div>
                     <h3 className="font-medium text-gray-900">Address</h3>
-                    <p>123 Market Street, New York, NY 10001</p>
+                    <p>Yenikent Bulvarı, Yeni Boğaziçi GaziMağusa</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -149,18 +149,19 @@ export default function Home() {
                   </svg>
                   <div>
                     <h3 className="font-medium text-gray-900">Hours</h3>
-                    <p>Monday-Friday: 8:00 AM - 8:00 PM</p>
-                    <p>Saturday: 7:00 AM - 9:00 PM</p>
-                    <p>Sunday: 9:00 AM - 6:00 PM</p>
+                    <p>Monday-Sunday: 8:00 AM - 12:00 AM (Midnight)</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-md relative">
-              {/* Replace with actual map */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                <span className="text-gray-500 text-base">Map Loading...</span>
-              </div>
+            <Image 
+                src="/images/map.png" 
+                alt="Esmer Market Map View" 
+                width={600} 
+                height={400} 
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>

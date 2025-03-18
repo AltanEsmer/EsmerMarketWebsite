@@ -1,0 +1,30 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "location": "Konum & Çalışma Saatleri",
+    "contact": "İletişim",
+    "news": "Haberler & Promosyonlar",
+    "signin": "Giriş Yap"
+  },
+  "footer": {
+    "description": "Taze ürünler, özel ürünler ve günlük ihtiyaçlar için yerel marketiniz.",
+    "shop": "Alışveriş",
+    "company": "Şirket",
+    "contact": "İletişim",
+    "all_products": "Tüm Ürünler",
+    "fresh_produce": "Taze Ürünler",
+    "bakery": "Fırın",
+    "dairy_cheese": "Süt & Peynir",
+    "about_us": "Hakkımızda",
+    "location_hours": "Konum & Çalışma Saatleri",
+    "contact_us": "Bize Ulaşın",
+    "news_events": "Haberler & Etkinlikler",
+    "rights_reserved": "Tüm hakları saklıdır"
+  },
+  "language": {
+    "name": "Türkçe",
+    "switch": "İngilizce'ye Geç"
+  }
+} 
