@@ -158,7 +158,7 @@ export default function RootLayout({
                     <address className="text-sm not-italic text-gray-600">
                       <p>Yenikent Bulvarı</p>
                       <p>Yeni Boğaziçi</p>
-                      <p className="mt-2">+905338214575</p>
+                      <p className="mt-2">+905338257214</p>
                       <p>info@esmermarket.com</p>
                     </address>
                   </div>
