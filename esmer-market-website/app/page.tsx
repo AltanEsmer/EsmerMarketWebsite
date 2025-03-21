@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import NotificationPermission from "./components/NotificationPermission";
 
 export default function Home() {
   return (
@@ -21,13 +24,16 @@ export default function Home() {
                 className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
               >
                 Browse Products
-          </a>
-          <a
+              </a>
+              <a
                 href="/location"
                 className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-base font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
               >
                 Find Our Store
               </a>
+            </div>
+            <div className="mt-4">
+              <NotificationPermission className="p-4 bg-white rounded-md shadow-sm" />
             </div>
           </div>
         </div>
@@ -124,8 +130,8 @@ export default function Home() {
                   className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
                 >
                   Get Directions
-        </a>
-        <a
+                </a>
+                <a
                   href="/contact"
                   className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-base font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
                 >
@@ -155,7 +161,7 @@ export default function Home() {
               </div>
             </div>
             <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-md relative">
-            <Image 
+              <Image 
                 src="/images/map.png" 
                 alt="Esmer Market Map View" 
                 width={600} 

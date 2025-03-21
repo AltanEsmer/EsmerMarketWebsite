@@ -6,6 +6,9 @@
     "location": "Location & Hours",
     "contact": "Contact",
     "news": "News & Promotions",
+    "reservations": "Reservations",
+    "lookup": "My Reservations",
+    "admin": "Admin Panel",
     "signin": "Sign In"
   },
   "footer": {

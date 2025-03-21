@@ -8,12 +8,17 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useEffect } from "react";
 import "../lib/i18n";
 import { useTranslation } from "react-i18next";
+import FirebaseInit from "./components/FirebaseInit";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function Navigation() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded, userId } = useAuth();
   const { t } = useTranslation();
+  
+  // Admin check - same admin list as in admin/reservations/page.tsx
+  const adminUserIds = ['user_2aO3r6V1BzvlMWQeXK8SFLlPoBX']; 
+  const isAdmin = adminUserIds.includes(userId || '');
   
   useEffect(() => {
     // Mobile Menu Toggle
@@ -46,7 +51,14 @@ function Navigation() {
             <a href="/" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.home')}</a>
             <a href="/about" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.about')}</a>
             {isSignedIn && (
-              <a href="/products" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.products')}</a>
+              <>
+                <a href="/products" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.products')}</a>
+                <a href="/reservations" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.reservations')}</a>
+                <a href="/reservations/lookup" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.lookup')}</a>
+                {isAdmin && (
+                  <a href="/admin/reservations" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.admin')}</a>
+                )}
+              </>
             )}
             <a href="/location" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.location')}</a>
             <a href="/contact" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.contact')}</a>
@@ -88,7 +100,14 @@ function Navigation() {
           <a href="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.home')}</a>
           <a href="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.about')}</a>
           {isSignedIn && (
-            <a href="/products" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.products')}</a>
+            <>
+              <a href="/products" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.products')}</a>
+              <a href="/reservations" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.reservations')}</a>
+              <a href="/reservations/lookup" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.lookup')}</a>
+              {isAdmin && (
+                <a href="/admin/reservations" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.admin')}</a>
+              )}
+            </>
           )}
           <a href="/location" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.location')}</a>
           <a href="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.contact')}</a>
@@ -126,6 +145,7 @@ export default function RootLayout({
       <LanguageProvider>
         <html lang="en">
           <body className={inter.className}>
+            <FirebaseInit />
             <Navigation />
             <main className="min-h-screen">{children}</main>
             <footer className="bg-white border-t">
@@ -151,6 +171,8 @@ export default function RootLayout({
                       <li><a href="/location" className="text-sm text-gray-600 hover:text-green-600">{t('footer.location_hours')}</a></li>
                       <li><a href="/contact" className="text-sm text-gray-600 hover:text-green-600">{t('footer.contact_us')}</a></li>
                       <li><a href="/news" className="text-sm text-gray-600 hover:text-green-600">{t('footer.news_events')}</a></li>
+                      <li><a href="/reservations" className="text-sm text-gray-600 hover:text-green-600">{t('navigation.reservations')}</a></li>
+                      <li><a href="/reservations/lookup" className="text-sm text-gray-600 hover:text-green-600">{t('navigation.lookup')}</a></li>
                     </ul>
                   </div>
                   <div className="space-y-3">

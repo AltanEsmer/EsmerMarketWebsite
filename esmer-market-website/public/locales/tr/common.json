@@ -6,6 +6,9 @@
     "location": "Konum & Çalışma Saatleri",
     "contact": "İletişim",
     "news": "Haberler & Promosyonlar",
+    "reservations": "Rezervasyonlar",
+    "lookup": "Rezervasyonlarım",
+    "admin": "Yönetici Paneli",
     "signin": "Giriş Yap"
   },
   "footer": {
