@@ -264,34 +264,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* Newsletter Section */}
-      <section className="w-full py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto rounded-xl bg-white shadow-md p-8 sm:p-12 border border-gray-100">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">Subscribe to Our Newsletter</h2>
-              <p className="text-gray-600">Stay updated with our latest products, promotions, and cooking tips.</p>
-            </div>
-            <form className="max-w-md mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 rounded-md border border-gray-300 py-3 px-4 text-sm shadow-sm focus:border-green-600 focus:outline-none focus:ring-1 focus:ring-green-600"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
