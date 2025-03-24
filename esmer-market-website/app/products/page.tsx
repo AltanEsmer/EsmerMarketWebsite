@@ -4,6 +4,7 @@ import { SignInButton } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function ProductsPage() {
   const { isSignedIn, isLoaded } = useAuth();
@@ -63,33 +64,45 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <a href="#fresh-produce" className="group flex flex-col items-center rounded-xl border border-gray-200 p-6 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md hover:border-green-600">
               <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 relative mb-4">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-                  <span className="text-green-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/freshProduce.jpg"
+                  alt="Fresh Produce"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Fresh Produce</h3>
             </a>
             <a href="#bakery" className="group flex flex-col items-center rounded-xl border border-gray-200 p-6 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md hover:border-green-600">
               <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 relative mb-4">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                  <span className="text-amber-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/bakery.jpg"
+                  alt="Bakery"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Bakery</h3>
             </a>
             <a href="#dairy-cheese" className="group flex flex-col items-center rounded-xl border border-gray-200 p-6 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md hover:border-green-600">
               <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 relative mb-4">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
-                  <span className="text-yellow-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/dairy&cheese.jpg"
+                  alt="Dairy & Cheese"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Dairy & Cheese</h3>
             </a>
             <a href="#specialty-items" className="group flex flex-col items-center rounded-xl border border-gray-200 p-6 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md hover:border-green-600">
               <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-100 relative mb-4">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center">
-                  <span className="text-purple-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/special.jpg"
+                  alt="Specialty Items"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Specialty Items</h3>
             </a>
@@ -108,9 +121,12 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-                  <span className="text-green-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/vegetables.jpg"
+                  alt="Organic Vegetables"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Organic Vegetables</h3>
@@ -123,9 +139,12 @@ export default function ProductsPage() {
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
-                  <span className="text-red-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/fruits.jpg"
+                  alt="Fresh Fruits"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Fresh Fruits</h3>
@@ -138,9 +157,12 @@ export default function ProductsPage() {
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-                  <span className="text-green-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/greens.jpeg"
+                  alt="Herbs & Leafy Greens"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Herbs & Leafy Greens</h3>
@@ -153,9 +175,12 @@ export default function ProductsPage() {
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <span className="text-gray-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/mushrooms.jpg"
+                  alt="Organic Mushrooms"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Organic Mushrooms</h3>
@@ -180,60 +205,72 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                  <span className="text-amber-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/köyekmek.jpg"
+                  alt="Village Bread"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">Artisan Breads</h3>
-                <p className="text-gray-600">Fresh baked sourdough and specialty breads</p>
+                <h3 className="text-lg font-semibold text-gray-900">Village Bread</h3>
+                <p className="text-gray-600">Big and delicious bread from our villages</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$4.99 - $7.99 / loaf</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺20 / 1 kg</span>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                  <span className="text-amber-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/sandwichekmek.jpg"
+                  alt="Sandwich Bread"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">Pastries</h3>
-                <p className="text-gray-600">Buttery croissants and sweet pastries</p>
+                <h3 className="text-lg font-semibold text-gray-900">Sandwich Bread</h3>
+                <p className="text-gray-600">Best sandwich bread for your sandwiches</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$2.99 - $5.99 each</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺15 / 1 kg</span>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                  <span className="text-amber-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/pide.jpeg"
+                  alt="Pide"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">Cakes & Desserts</h3>
-                <p className="text-gray-600">Celebration cakes and sweet treats</p>
+                <h3 className="text-lg font-semibold text-gray-900">Pide</h3>
+                <p className="text-gray-600">Special daily cypriot pide</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$12.99 - $45.99</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺30 / 1 kg</span>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                  <span className="text-amber-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/somunekmek.jpg"
+                  alt="Loaf bread"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">Cookies & Biscuits</h3>
-                <p className="text-gray-600">Homemade cookies and specialty biscuits</p>
+                <h3 className="text-lg font-semibold text-gray-900">Loaf bread</h3>
+                <p className="text-gray-600">Delicious daily loaf bread</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$3.99 - $15.99 / dozen</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺10 / 1 kg</span>
                 </div>
               </div>
             </div>
@@ -252,60 +289,72 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
-                  <span className="text-yellow-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/cheese.jpeg"
+                  alt="Artisanal Cheeses"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Artisanal Cheeses</h3>
                 <p className="text-gray-600">Local and imported specialty cheeses</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$6.99 - $24.99 / lb</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺50 / 1 kg</span>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                  <span className="text-blue-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/milk.jpg"
+                  alt="Organic Milk"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Organic Milk</h3>
                 <p className="text-gray-600">Fresh milk from local dairy farms</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$4.99 - $6.99 / half gallon</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺70 / half gallon</span>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                  <span className="text-blue-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/yogurt.jpg"
+                  alt="Yogurt"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
                 <h3 className="text-lg font-semibold text-gray-900">Yogurt</h3>
-                <p className="text-gray-600">Greek, natural, and flavored varieties</p>
+                <p className="text-gray-600">Turkish, natural, and flavored varieties</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$1.99 - $5.99</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺50 - ₺80 / 1 kg</span>
                 </div>
               </div>
             </div>
             
             <div className="flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
               <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
-                  <span className="text-yellow-800 text-sm">Image Placeholder</span>
-                </div>
+                <Image
+                  src="/images/hellim.jpeg"
+                  alt="Halloumi"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900">Butter & Spreads</h3>
-                <p className="text-gray-600">Traditional butter and specialty spreads</p>
+                <h3 className="text-lg font-semibold text-gray-900">Halloumi</h3>
+                <p className="text-gray-600">Only in Cyprus</p>
                 <div className="pt-2">
-                  <span className="inline-block text-sm font-medium text-green-600">$3.99 - $8.99</span>
+                  <span className="inline-block text-sm font-medium text-green-600">₺60 - ₺100 / 1 kg</span>
                 </div>
               </div>
             </div>
