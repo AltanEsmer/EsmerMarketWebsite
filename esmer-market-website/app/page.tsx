@@ -161,13 +161,17 @@ export default function Home() {
               </div>
             </div>
             <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-md relative">
-              <Image 
-                src="/images/map.png" 
-                alt="Esmer Market Map View" 
-                width={600} 
-                height={400} 
-                className="object-cover w-full h-full"
-              />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200 flex flex-col items-center justify-center p-6 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <p className="text-gray-600 font-medium">1234 Market Street, North London, UK</p>
+                <p className="text-sm text-gray-500 mt-1">Visit us in store or contact us for directions</p>
+                <a href="/contact" className="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700">
+                  Get Directions
+                </a>
+              </div>
             </div>
           </div>
         </div>
