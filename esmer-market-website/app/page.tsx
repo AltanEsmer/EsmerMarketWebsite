@@ -62,7 +62,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-gray-900">Fresh Organic Vegetables</h3>
                   <p className="text-gray-600">Locally sourced and organic</p>
                   <div className="pt-2">
-                    <a href="/products#fresh-produce" className="text-sm font-medium text-green-600 hover:text-green-700">Shop now →</a>
+                    <a href="/products#fresh-produce" className="text-sm font-medium text-green-600 hover:text-green-700">Explore now →</a>
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-gray-900">Artisanal Cheeses</h3>
                   <p className="text-gray-600">From local and international producers</p>
                   <div className="pt-2">
-                    <a href="/products#dairy-cheese" className="text-sm font-medium text-green-600 hover:text-green-700">Shop now →</a>
+                    <a href="/products#dairy-cheese" className="text-sm font-medium text-green-600 hover:text-green-700">Explore now →</a>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-gray-900">Fresh Baked Goods</h3>
                   <p className="text-gray-600">Baked daily in our store</p>
                   <div className="pt-2">
-                    <a href="/products#bakery" className="text-sm font-medium text-green-600 hover:text-green-700">Shop now →</a>
+                    <a href="/products#bakery" className="text-sm font-medium text-green-600 hover:text-green-700">Explore now →</a>
                   </div>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Weekend Special: 20% Off Fresh Fruits</h3>
                   <p className="text-sm text-gray-600">Enjoy 20% off all fresh fruits this weekend only!</p>
                   <div className="pt-2">
-                    <a href="/news" className="text-sm font-medium text-green-600 hover:text-green-700">Read more →</a>
+                    <a href="/news#promotions" className="text-sm font-medium text-green-600 hover:text-green-700">Read more →</a>
                   </div>
                 </div>
               </div>
@@ -229,7 +229,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">New Organic Section Now Open</h3>
                   <p className="text-sm text-gray-600">We've expanded our organic section with new products.</p>
                   <div className="pt-2">
-                    <a href="/news" className="text-sm font-medium text-green-600 hover:text-green-700">Read more →</a>
+                    <a href="/news#organic-section" className="text-sm font-medium text-green-600 hover:text-green-700">Read more →</a>
                   </div>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Cooking Workshop: Mediterranean Cuisine</h3>
                   <p className="text-sm text-gray-600">Join our chef for a cooking workshop next Saturday!</p>
                   <div className="pt-2">
-                    <a href="/news" className="text-sm font-medium text-green-600 hover:text-green-700">Read more →</a>
+                    <a href="/news#cooking-workshop" className="text-sm font-medium text-green-600 hover:text-green-700">Read more →</a>
                   </div>
                 </div>
               </div>

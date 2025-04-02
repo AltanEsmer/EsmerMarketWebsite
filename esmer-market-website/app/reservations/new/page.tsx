@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useAuth } from '@clerk/nextjs';
 import ReservationForm from '../../components/ReservationForm';
 
 interface Product {
@@ -16,7 +15,6 @@ interface Product {
 }
 
 export default function NewReservationPage() {
-  const { isSignedIn, isLoaded } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
   const productId = searchParams.get('productId');
@@ -55,14 +53,7 @@ export default function NewReservationPage() {
     fetchProduct();
   }, [productId]);
   
-  // Check if user is authenticated
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      router.push('/sign-in');
-    }
-  }, [isSignedIn, isLoaded, router]);
-  
-  if (!isLoaded || isLoading) {
+  if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
         <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-green-600 border-r-transparent align-[-0.125em]" role="status">

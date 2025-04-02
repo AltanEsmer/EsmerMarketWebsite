@@ -1,41 +1,9 @@
 "use client";
 
-import { SignInButton } from "@clerk/nextjs";
-import { useAuth } from "@clerk/nextjs";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function ProductsPage() {
-  const { isSignedIn, isLoaded } = useAuth();
-  const router = useRouter();
-  
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      // Redirect to home if not signed in
-      router.push('/');
-    }
-  }, [isSignedIn, isLoaded, router]);
-  
-  if (!isLoaded) {
-    return <div className="container mx-auto px-4 py-16 text-center">Loading...</div>;
-  }
-  
-  if (!isSignedIn) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold mb-6">Access Required</h1>
-        <p className="mb-6 text-gray-600">
-          Please sign in to view our product catalog.
-        </p>
-        <SignInButton mode="modal">
-          <button className="inline-flex items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
-            Sign In
-          </button>
-        </SignInButton>
-      </div>
-    );
-  }
+
   
   return (
     <div className="flex flex-col min-h-screen">

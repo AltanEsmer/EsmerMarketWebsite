@@ -465,19 +465,19 @@ export default function ContactPage() {
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Do you offer delivery services?</h3>
                 <p className="text-gray-700">
-                  Yes, we offer delivery for orders within a 5-mile radius of our store. Orders over $50 qualify for free delivery.
+                  No, we don't offer delivery services yet Maybe in the future.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Can I special order items not found in the store?</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Can I order items not found in the store?</h3>
                 <p className="text-gray-700">
-                  Yes, we can special order many items. Please contact our customer service team for assistance.
+                  If the demand is high, we can order the item from the supplier.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Do you offer catering services?</h3>
                 <p className="text-gray-700">
-                  Yes, we offer catering for events of all sizes. Please contact us at least 48 hours in advance.
+                  It depends on the date and time. If holiday or celebration is coming, we can prepare for our customers.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">

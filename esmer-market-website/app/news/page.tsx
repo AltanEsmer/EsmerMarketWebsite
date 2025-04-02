@@ -1,40 +1,10 @@
 "use client";
 
-import { SignInButton } from "@clerk/nextjs";
-import { useAuth } from "@clerk/nextjs";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function NewsPage() {
-  const { isSignedIn, isLoaded } = useAuth();
   const router = useRouter();
-  
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      // Redirect to home if not signed in
-      router.push('/');
-    }
-  }, [isSignedIn, isLoaded, router]);
-  
-  if (!isLoaded) {
-    return <div className="container mx-auto px-4 py-16 text-center">Loading...</div>;
-  }
-  
-  if (!isSignedIn) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold mb-6">Access Required</h1>
-        <p className="mb-6 text-gray-600">
-          Please sign in to view news and promotions.
-        </p>
-        <SignInButton mode="modal">
-          <button className="inline-flex items-center justify-center rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
-            Sign In
-          </button>
-        </SignInButton>
-      </div>
-    );
-  }
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -53,7 +23,7 @@ export default function NewsPage() {
       </section>
       
       {/* Content Sections */}
-      <section className="w-full py-16">
+      <section id="promotions" className="w-full py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-8">
             {/* Featured Promotion */}
@@ -74,7 +44,7 @@ export default function NewsPage() {
                       href="/products"
                       className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-green-700"
                     >
-                      Shop Now
+                      Explore Now
                     </a>
                   </div>
                 </div>
@@ -86,11 +56,11 @@ export default function NewsPage() {
             
             {/* News & Updates */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Latest News</h2>
+              <h2 id="latest-news" className="text-2xl font-bold">Latest News</h2>
               
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {/* News Item 1 */}
-                <div className="group overflow-hidden rounded-lg border">
+                <div id="organic-section" className="group overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-100">
                     {/* News image would go here */}
                   </div>
@@ -107,16 +77,16 @@ export default function NewsPage() {
                       a wider selection of organic produce, pantry staples, and specialty items.
                     </p>
                     <a
-                      href="#"
+                      href="/products"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Read More
+                      Explore More
                     </a>
                   </div>
                 </div>
                 
                 {/* News Item 2 */}
-                <div className="group overflow-hidden rounded-lg border">
+                <div id="cooking-workshop" className="group overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-100">
                     {/* News image would go here */}
                   </div>
@@ -136,13 +106,13 @@ export default function NewsPage() {
                       href="#"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Read More
+                      Learn More
                     </a>
                   </div>
                 </div>
                 
                 {/* News Item 3 */}
-                <div className="group overflow-hidden rounded-lg border">
+                <div id="farmer-spotlight" className="group overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-100">
                     {/* News image would go here */}
                   </div>
@@ -168,7 +138,7 @@ export default function NewsPage() {
                 </div>
                 
                 {/* News Item 4 */}
-                <div className="group overflow-hidden rounded-lg border">
+                <div id="extended-hours" className="group overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-100">
                     {/* News image would go here */}
                   </div>
@@ -194,7 +164,7 @@ export default function NewsPage() {
                 </div>
                 
                 {/* News Item 5 */}
-                <div className="group overflow-hidden rounded-lg border">
+                <div id="new-arrivals" className="group overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-100">
                     {/* News image would go here */}
                   </div>
@@ -211,16 +181,16 @@ export default function NewsPage() {
                       specialty spices, sauces, and hard-to-find ingredients from around the world.
                     </p>
                     <a
-                      href="#"
+                      href="/products"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Read More
+                      Explore More
                     </a>
                   </div>
                 </div>
                 
                 {/* News Item 6 */}
-                <div className="group overflow-hidden rounded-lg border">
+                <div id="tasting-event" className="group overflow-hidden rounded-lg border">
                   <div className="aspect-video w-full bg-gray-100">
                     {/* News image would go here */}
                   </div>
@@ -240,46 +210,10 @@ export default function NewsPage() {
                       href="#"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Read More
+                      Learn More
                     </a>
                   </div>
                 </div>
-              </div>
-              
-              {/* Pagination */}
-              <div className="mt-8 flex justify-center">
-                <nav className="flex items-center gap-1">
-                  <a
-                    href="#"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-md border text-sm"
-                  >
-                    &lt;
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-green-600 bg-green-600 text-sm font-medium text-white"
-                  >
-                    1
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-md border text-sm"
-                  >
-                    2
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-md border text-sm"
-                  >
-                    3
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-md border text-sm"
-                  >
-                    &gt;
-                  </a>
-                </nav>
               </div>
             </div>
           </div>
