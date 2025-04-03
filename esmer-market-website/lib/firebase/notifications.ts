@@ -50,7 +50,7 @@ export const setupMessageListener = (callback?: (payload: MessagePayload) => voi
       const notificationTitle = payload.notification?.title || "New Notification";
       const notificationOptions = {
         body: payload.notification?.body,
-        icon: '/icon.png', // Use an appropriate icon from your public folder
+        icon: '/images/MarketLogo.jpeg', // Use the market logo instead
       };
       
       new Notification(notificationTitle, notificationOptions);
@@ -61,4 +61,29 @@ export const setupMessageListener = (callback?: (payload: MessagePayload) => voi
       callback(payload);
     }
   });
+};
+
+/**
+ * Send a test notification to verify that notifications are working
+ */
+export const sendTestNotification = async () => {
+  if (Notification.permission !== 'granted') {
+    console.warn("Notification permission not granted");
+    return false;
+  }
+
+  try {
+    // Create a local notification
+    const notificationTitle = "Test Notification";
+    const notificationOptions = {
+      body: "This is a test notification from Esmer Market!",
+      icon: '/images/MarketLogo.jpeg',
+    };
+    
+    new Notification(notificationTitle, notificationOptions);
+    return true;
+  } catch (error) {
+    console.error("Error sending test notification:", error);
+    return false;
+  }
 }; 

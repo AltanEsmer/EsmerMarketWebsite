@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useNotifications } from '../../lib/hooks/useNotifications';
+import { sendTestNotification } from '../../lib/firebase/notifications';
 
 interface NotificationPermissionProps {
   className?: string;
@@ -10,11 +11,22 @@ interface NotificationPermissionProps {
 export default function NotificationPermission({ className }: NotificationPermissionProps) {
   const { notificationStatus, requestPermission } = useNotifications();
   const [isLoading, setIsLoading] = useState(false);
+  const [isTesting, setIsTesting] = useState(false);
 
   const handleRequestPermission = async () => {
     setIsLoading(true);
     await requestPermission();
     setIsLoading(false);
+  };
+
+  const handleTestNotification = async () => {
+    setIsTesting(true);
+    try {
+      await sendTestNotification();
+    } catch (error) {
+      console.error("Error sending test notification:", error);
+    }
+    setIsTesting(false);
   };
 
   if (notificationStatus === 'unavailable') {
@@ -23,8 +35,21 @@ export default function NotificationPermission({ className }: NotificationPermis
 
   if (notificationStatus === 'granted') {
     return (
-      <div className={`text-sm text-green-600 ${className || ''}`}>
-        You will receive notifications for promotions and updates
+      <div className={`flex flex-col items-center gap-2 ${className || ''}`}>
+        <div className="text-sm text-green-600">
+          You will receive notifications for promotions and updates
+        </div>
+        <button
+          onClick={handleTestNotification}
+          disabled={isTesting}
+          className={`inline-flex items-center justify-center px-4 py-2 rounded text-sm font-medium 
+          ${isTesting 
+            ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+            : 'bg-green-600 text-white hover:bg-green-700 transition-colors'
+          }`}
+        >
+          {isTesting ? 'Sending...' : 'Test Notification'}
+        </button>
       </div>
     );
   }

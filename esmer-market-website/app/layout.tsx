@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import "../lib/i18n";
 import { useTranslation } from "react-i18next";
 import FirebaseInit from "./components/FirebaseInit";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,8 +39,17 @@ function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <a href="/" className="text-xl font-bold text-green-600">Esmer Market</a>
+          <div className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
+              <Image
+                src="/images/MarketLogo.jpeg"
+                alt="Esmer Market Logo"
+                width={80}
+                height={80}
+                className="rounded-md"
+              />
+              <span className="text-xl font-bold text-green-600">Esmer Market</span>
+            </a>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             <a href="/" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.home')}</a>
