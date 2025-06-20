@@ -62,40 +62,40 @@ export default function ContactPage() {
     
     // First name validation
     if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required';
+      newErrors.firstName = 'Ad alanı zorunludur';
       isValid = false;
     }
     
     // Last name validation
     if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required';
+      newErrors.lastName = 'Soyad alanı zorunludur';
       isValid = false;
     }
     
     // Email validation
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'E-posta alanı zorunludur';
       isValid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = 'Lütfen geçerli bir e-posta adresi girin';
       isValid = false;
     }
     
     // Subject validation
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
+      newErrors.subject = 'Konu alanı zorunludur';
       isValid = false;
     }
     
     // Message validation
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = 'Mesaj alanı zorunludur';
       isValid = false;
     }
     
     // reCAPTCHA validation
     if (!recaptchaToken) {
-      newErrors.recaptcha = 'Please complete the reCAPTCHA verification';
+      newErrors.recaptcha = 'Lütfen reCAPTCHA doğrulamasını tamamlayın';
       isValid = false;
     }
     
@@ -117,7 +117,7 @@ export default function ContactPage() {
         isSubmitting: true,
         isSubmitted: false,
         isError: false,
-        message: 'Sending your message...'
+        message: 'Mesajınız gönderiliyor...'
       });
       
       // Send form data to API
@@ -140,7 +140,7 @@ export default function ContactPage() {
           isSubmitting: false,
           isSubmitted: true,
           isError: false,
-          message: 'Your message has been sent successfully! We will get back to you soon.'
+          message: 'Mesajınız başarıyla gönderildi! En kısa sürede size geri dönüş yapacağız.'
         });
         
         // Reset form
@@ -163,7 +163,7 @@ export default function ContactPage() {
           isSubmitting: false,
           isSubmitted: false,
           isError: true,
-          message: data.error || 'An error occurred while sending your message. Please try again.'
+          message: data.error || 'Mesajınız gönderilirken bir hata oluştu. Lütfen tekrar deneyin.'
         });
       }
     } catch (error) {
@@ -171,7 +171,7 @@ export default function ContactPage() {
         isSubmitting: false,
         isSubmitted: false,
         isError: true,
-        message: 'An error occurred while sending your message. Please try again.'
+        message: 'Mesajınız gönderilirken bir hata oluştu. Lütfen tekrar deneyin.'
       });
     }
   };
@@ -183,10 +183,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-gray-900 mb-6">
-              Contact Us
+              Bize Ulaşın
             </h1>
             <p className="text-xl text-gray-700">
-              We'd love to hear from you. Send us a message or reach out through our contact information below.
+              Sizden haber almaktan memnuniyet duyarız. Bize mesaj gönderin veya aşağıdaki iletişim bilgilerimizden bize ulaşın.
             </p>
           </div>
         </div>
@@ -197,9 +197,9 @@ export default function ContactPage() {
           <div className="grid gap-12 md:grid-cols-2">
             {/* Contact Form */}
             <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Bize Mesaj Gönderin</h2>
               <p className="text-gray-700 mb-6">
-                Fill out the form below and we'll get back to you as soon as possible.
+                Aşağıdaki formu doldurun, en kısa sürede size geri dönüş yapacağız.
               </p>
               
               {/* Success Message */}
@@ -238,7 +238,7 @@ export default function ContactPage() {
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
-                      First Name <span className="text-green-500">*</span>
+                      Ad <span className="text-green-500">*</span>
                     </label>
                     <input
                       id="firstName"
@@ -247,7 +247,7 @@ export default function ContactPage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       className={`w-full rounded-md border ${formErrors.firstName ? 'border-red-300' : 'border-gray-300'} p-3 text-gray-700 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500`}
-                      placeholder="Enter your first name"
+                      placeholder="Adınızı girin"
                     />
                     {formErrors.firstName && (
                       <p className="text-sm text-red-600">{formErrors.firstName}</p>
@@ -255,7 +255,7 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
-                      Last Name <span className="text-green-500">*</span>
+                      Soyad <span className="text-green-500">*</span>
                     </label>
                     <input
                       id="lastName"
@@ -264,7 +264,7 @@ export default function ContactPage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       className={`w-full rounded-md border ${formErrors.lastName ? 'border-red-300' : 'border-gray-300'} p-3 text-gray-700 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500`}
-                      placeholder="Enter your last name"
+                      placeholder="Soyadınızı girin"
                     />
                     {formErrors.lastName && (
                       <p className="text-sm text-red-600">{formErrors.lastName}</p>
@@ -273,7 +273,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium text-gray-700">
-                    Email <span className="text-green-500">*</span>
+                    E-posta <span className="text-green-500">*</span>
                   </label>
                   <input
                     id="email"
@@ -282,7 +282,7 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full rounded-md border ${formErrors.email ? 'border-red-300' : 'border-gray-300'} p-3 text-gray-700 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500`}
-                    placeholder="Enter your email"
+                    placeholder="E-posta adresinizi girin"
                   />
                   {formErrors.email && (
                     <p className="text-sm text-red-600">{formErrors.email}</p>
@@ -290,7 +290,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm font-medium text-gray-700">
-                    Phone Number (Optional)
+                    Telefon Numarası (İsteğe bağlı)
                   </label>
                   <input
                     id="phone"
@@ -299,12 +299,12 @@ export default function ContactPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full rounded-md border border-gray-300 p-3 text-gray-700 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
-                    placeholder="Enter your phone number"
+                    placeholder="Telefon numaranızı girin"
                   />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium text-gray-700">
-                    Subject <span className="text-green-500">*</span>
+                    Konu <span className="text-green-500">*</span>
                   </label>
                   <input
                     id="subject"
@@ -313,7 +313,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     className={`w-full rounded-md border ${formErrors.subject ? 'border-red-300' : 'border-gray-300'} p-3 text-gray-700 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500`}
-                    placeholder="Enter subject"
+                    placeholder="Konuyu girin"
                   />
                   {formErrors.subject && (
                     <p className="text-sm text-red-600">{formErrors.subject}</p>
@@ -321,7 +321,7 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                    Message <span className="text-green-500">*</span>
+                    Mesaj <span className="text-green-500">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -330,7 +330,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     className={`w-full rounded-md border ${formErrors.message ? 'border-red-300' : 'border-gray-300'} p-3 text-gray-700 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500`}
-                    placeholder="Enter your message"
+                    placeholder="Mesajınızı girin"
                   ></textarea>
                   {formErrors.message && (
                     <p className="text-sm text-red-600">{formErrors.message}</p>
@@ -351,7 +351,7 @@ export default function ContactPage() {
                   disabled={formStatus.isSubmitting || formStatus.isSubmitted}
                   className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600 disabled:opacity-70"
                 >
-                  {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
+                  {formStatus.isSubmitting ? 'Gönderiliyor...' : 'Mesaj Gönder'}
                 </button>
               </form>
             </div>
@@ -359,9 +359,9 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">İletişim Bilgileri</h2>
                 <p className="text-gray-700">
-                  You can also reach out to us using the following contact details.
+                  Aşağıdaki iletişim bilgilerini kullanarak da bize ulaşabilirsiniz.
                 </p>
               </div>
               
@@ -375,7 +375,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Store Address</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">Mağaza Adresi</h3>
                       <address className="mt-2 not-italic text-gray-700">
                         <p>Yenikent Bulvarı, Yeni Boğaziçi</p>
                       </address>
@@ -391,16 +391,16 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Customer Service</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">Müşteri Hizmetleri</h3>
                       <div className="mt-2 space-y-1 text-gray-700">
                         <p>
-                          <strong>Phone:</strong> +905338214575
+                          <strong>Telefon:</strong> +905338214575
                         </p>
                         <p>
-                          <strong>Email:</strong> info@esmermarket.com
+                          <strong>E-posta:</strong> info@esmermarket.com
                         </p>
                         <p>
-                          <strong>Hours:</strong> Every day, 8:00 AM - 12:00 AM (Midnight)
+                          <strong>Çalışma Saatleri:</strong> Her gün, 08:00 - 24:00
                         </p>
                       </div>
                     </div>
@@ -415,7 +415,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Connect With Us</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">Bizi Takip Edin</h3>
                       <div className="mt-4 flex gap-4">
                         <a href="#" className="text-gray-500 hover:text-green-500" aria-label="Facebook">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -441,12 +441,12 @@ export default function ContactPage() {
               </div>
               
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Store Hours</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Çalışma Saatleri</h3>
                 <table className="w-full text-gray-700">
                   <tbody>
                     <tr>
-                      <td className="py-2 pr-4 font-medium">Every Day</td>
-                      <td className="py-2">8:00 AM - 12:00 AM (Midnight)</td>
+                      <td className="py-2 pr-4 font-medium">Her Gün</td>
+                      <td className="py-2">08:00 - 24:00</td>
                     </tr>
                   </tbody>
                 </table>
@@ -460,30 +460,30 @@ export default function ContactPage() {
       <section className="w-full py-16 bg-green-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Sıkça Sorulan Sorular</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Do you offer delivery services?</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Teslimat hizmeti sunuyor musunuz?</h3>
                 <p className="text-gray-700">
-                  No, we don't offer delivery services yet Maybe in the future.
+                  Hayır, henüz teslimat hizmeti sunmuyoruz. Belki ileride sunabiliriz.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Can I order items not found in the store?</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Mağazada bulunmayan ürünleri sipariş edebilir miyim?</h3>
                 <p className="text-gray-700">
-                  If the demand is high, we can order the item from the supplier.
+                  Talep yüksekse, ürünü tedarikçiden sipariş edebiliriz.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Do you offer catering services?</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Catering hizmeti sunuyor musunuz?</h3>
                 <p className="text-gray-700">
-                  It depends on the date and time. If holiday or celebration is coming, we can prepare for our customers.
+                  Tarih ve zamana bağlıdır. Eğer bayram veya kutlama yaklaşıyorsa, müşterilerimiz için hazırlık yapabiliriz.
                 </p>
               </div>
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">What payment methods do you accept?</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Hangi ödeme yöntemlerini kabul ediyorsunuz?</h3>
                 <p className="text-gray-700">
-                  We accept all major credit cards, debit cards, cash, and mobile payment options.
+                  Tüm büyük kredi kartları, banka kartları, nakit ve mobil ödeme seçeneklerini kabul ediyoruz.
                 </p>
               </div>
             </div>

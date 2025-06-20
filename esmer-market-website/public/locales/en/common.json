@@ -1,7 +1,7 @@
 {
   "navigation": {
     "home": "Home",
-    "about": "About Us",
+    "about": "About",
     "products": "Products",
     "location": "Location & Hours",
     "contact": "Contact",
@@ -9,10 +9,11 @@
     "reservations": "Reservations",
     "lookup": "My Reservations",
     "admin": "Admin Panel",
-    "signin": "Sign In"
+    "signin": "Sign In",
+    "reviews": "Customer Reviews"
   },
   "footer": {
-    "description": "Your local grocery store for fresh produce, specialty items, and everyday essentials.",
+    "description": "Your local market for fresh produce, specialty items, and everyday essentials.",
     "shop": "Shop",
     "company": "Company",
     "contact": "Contact",
@@ -24,6 +25,7 @@
     "location_hours": "Location & Hours",
     "contact_us": "Contact Us",
     "news_events": "News & Events",
+    "reviews": "Customer Reviews",
     "rights_reserved": "All rights reserved"
   },
   "language": {

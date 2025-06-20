@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import { initializeFirestoreCollections } from '../../lib/firebase/initCollections';
 
 export default function FirebaseInit() {
   useEffect(() => {
@@ -33,6 +34,11 @@ export default function FirebaseInit() {
           console.error('Service Worker registration failed:', error);
         });
     }
+    
+    // Initialize Firestore collections with sample data if needed
+    initializeFirestoreCollections()
+      .then(() => console.log('Firestore collections initialized'))
+      .catch(error => console.error('Failed to initialize Firestore collections:', error));
   }, []);
 
   // This component doesn't render anything visible

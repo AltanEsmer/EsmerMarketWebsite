@@ -13,10 +13,10 @@ export default function NewsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-gray-900 mb-6">
-              News & Promotions
+              Haberler & Promosyonlar
             </h1>
             <p className="text-xl text-gray-700">
-              Stay up to date with the latest happenings and special offers at Esmer Market.
+              Esmer Market'teki en son gelişmeler ve özel tekliflerden haberdar olun.
             </p>
           </div>
         </div>
@@ -31,20 +31,20 @@ export default function NewsPage() {
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-4">
                   <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
-                    Current Promotion
+                    Güncel Promosyon
                   </span>
-                  <h2 className="text-2xl font-bold text-green-900">Weekend Special: 20% Off Fresh Fruits</h2>
+                  <h2 className="text-2xl font-bold text-green-900">Hafta Sonu Özel: Taze Meyvelerde %20 İndirim</h2>
                   <p className="text-green-800">
-                    Enjoy 20% off all fresh fruits this weekend only! Stock up on seasonal favorites 
-                    including strawberries, blueberries, peaches, and more.
+                    Sadece bu hafta sonu tüm taze meyvelerde %20 indirim! Çilek, yaban mersini, şeftali ve 
+                    daha fazlası gibi mevsimlik favorilerinizi stoklayın.
                   </p>
-                  <p className="text-sm text-green-700">Valid: April 15-16, 2023</p>
+                  <p className="text-sm text-green-700">Geçerlilik: 15-16 Nisan 2023</p>
                   <div>
                     <a
                       href="/products"
                       className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-green-700"
                     >
-                      Explore Now
+                      Şimdi Keşfet
                     </a>
                   </div>
                 </div>
@@ -56,7 +56,7 @@ export default function NewsPage() {
             
             {/* News & Updates */}
             <div className="space-y-6">
-              <h2 id="latest-news" className="text-2xl font-bold">Latest News</h2>
+              <h2 id="latest-news" className="text-2xl font-bold">Son Haberler</h2>
               
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {/* News Item 1 */}
@@ -67,20 +67,20 @@ export default function NewsPage() {
                   <div className="p-4">
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800">
-                        News
+                        Haber
                       </span>
-                      <span className="text-xs text-gray-500">April 10, 2023</span>
+                      <span className="text-xs text-gray-500">10 Nisan 2023</span>
                     </div>
-                    <h3 className="mt-2 font-semibold">New Organic Section Now Open</h3>
+                    <h3 className="mt-2 font-semibold">Yeni Organik Bölümümüz Açıldı</h3>
                     <p className="mt-2 text-sm text-gray-700">
-                      We're excited to announce the opening of our expanded organic section, featuring 
-                      a wider selection of organic produce, pantry staples, and specialty items.
+                      Genişletilmiş organik bölümümüzün açılışını duyurmaktan heyecan duyuyoruz. 
+                      Daha geniş bir organik ürün, mutfak temel malzemeleri ve özel ürün seçkisi sunuyoruz.
                     </p>
                     <a
                       href="/products"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Explore More
+                      Daha Fazla Keşfet
                     </a>
                   </div>
                 </div>
@@ -93,20 +93,20 @@ export default function NewsPage() {
                   <div className="p-4">
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
-                        Event
+                        Etkinlik
                       </span>
-                      <span className="text-xs text-gray-500">April 5, 2023</span>
+                      <span className="text-xs text-gray-500">5 Nisan 2023</span>
                     </div>
-                    <h3 className="mt-2 font-semibold">Cooking Workshop: Mediterranean Cuisine</h3>
+                    <h3 className="mt-2 font-semibold">Yemek Atölyesi: Akdeniz Mutfağı</h3>
                     <p className="mt-2 text-sm text-gray-700">
-                      Join our chef for a hands-on cooking workshop focused on Mediterranean cuisine. 
-                      Learn new recipes and cooking techniques while enjoying delicious samples.
+                      Şefimizle birlikte Akdeniz mutfağına odaklanan uygulamalı bir yemek atölyesine katılın. 
+                      Lezzetli örneklerin tadını çıkarırken yeni tarifler ve pişirme teknikleri öğrenin.
                     </p>
                     <a
                       href="#"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Learn More
+                      Daha Fazla Bilgi
                     </a>
                   </div>
                 </div>
@@ -119,20 +119,20 @@ export default function NewsPage() {
                   <div className="p-4">
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs font-medium text-purple-800">
-                        Community
+                        Topluluk
                       </span>
-                      <span className="text-xs text-gray-500">March 28, 2023</span>
+                      <span className="text-xs text-gray-500">28 Mart 2023</span>
                     </div>
-                    <h3 className="mt-2 font-semibold">Local Farmer Spotlight: Green Acres Farm</h3>
+                    <h3 className="mt-2 font-semibold">Yerel Çiftçi Tanıtımı: Yeşil Tarlalar Çiftliği</h3>
                     <p className="mt-2 text-sm text-gray-700">
-                      This month, we're highlighting Green Acres Farm, a family-owned organic farm that has 
-                      been supplying us with fresh, seasonal produce for over five years.
+                      Bu ay, beş yılı aşkın süredir bize taze, mevsimlik ürünler sağlayan aile işletmesi 
+                      organik çiftlik olan Yeşil Tarlalar Çiftliği'ni tanıtıyoruz.
                     </p>
                     <a
                       href="#"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Read More
+                      Daha Fazla Oku
                     </a>
                   </div>
                 </div>
@@ -145,20 +145,20 @@ export default function NewsPage() {
                   <div className="p-4">
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800">
-                        Announcement
+                        Duyuru
                       </span>
-                      <span className="text-xs text-gray-500">March 20, 2023</span>
+                      <span className="text-xs text-gray-500">20 Mart 2023</span>
                     </div>
-                    <h3 className="mt-2 font-semibold">Extended Hours Starting Next Month</h3>
+                    <h3 className="mt-2 font-semibold">Gelecek Ay Uzatılmış Çalışma Saatleri</h3>
                     <p className="mt-2 text-sm text-gray-700">
-                      Beginning May 1st, we'll be extending our weekday hours to better serve our community. 
-                      The store will now be open from 7:00 AM to 9:00 PM Monday through Friday.
+                      1 Mayıs'tan itibaren, topluluğumuza daha iyi hizmet vermek için hafta içi çalışma saatlerimizi 
+                      uzatıyoruz. Mağaza artık Pazartesi'den Cuma'ya 07:00 - 21:00 saatleri arasında açık olacak.
                     </p>
                     <a
                       href="#"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Read More
+                      Daha Fazla Oku
                     </a>
                   </div>
                 </div>
@@ -171,20 +171,20 @@ export default function NewsPage() {
                   <div className="p-4">
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
-                        Products
+                        Ürünler
                       </span>
-                      <span className="text-xs text-gray-500">March 15, 2023</span>
+                      <span className="text-xs text-gray-500">15 Mart 2023</span>
                     </div>
-                    <h3 className="mt-2 font-semibold">New Arrivals: International Gourmet Selection</h3>
+                    <h3 className="mt-2 font-semibold">Yeni Gelenler: Uluslararası Gurme Seçkisi</h3>
                     <p className="mt-2 text-sm text-gray-700">
-                      We've added an exciting new selection of international gourmet products, including 
-                      specialty spices, sauces, and hard-to-find ingredients from around the world.
+                      Dünyanın dört bir yanından özel baharatlar, soslar ve bulunması zor malzemeler dahil 
+                      heyecan verici yeni bir uluslararası gurme ürün seçkisi ekledik.
                     </p>
                     <a
                       href="/products"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Explore More
+                      Daha Fazla Keşfet
                     </a>
                   </div>
                 </div>
@@ -197,20 +197,20 @@ export default function NewsPage() {
                   <div className="p-4">
                     <div className="flex items-center gap-2">
                       <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
-                        Event
+                        Etkinlik
                       </span>
-                      <span className="text-xs text-gray-500">March 8, 2023</span>
+                      <span className="text-xs text-gray-500">8 Mart 2023</span>
                     </div>
-                    <h3 className="mt-2 font-semibold">Cheese & Wine Tasting Event</h3>
+                    <h3 className="mt-2 font-semibold">Peynir & Şarap Tadım Etkinliği</h3>
                     <p className="mt-2 text-sm text-gray-700">
-                      Join us for an evening of cheese and wine tasting featuring local artisanal cheeses 
-                      paired with a selection of wines from our collection.
+                      Koleksiyonumuzdaki şarap seçkisiyle eşleştirilmiş yerel el yapımı peynirlerin yer aldığı 
+                      bir peynir ve şarap tadım akşamına katılın.
                     </p>
                     <a
                       href="#"
                       className="mt-3 inline-block text-sm font-medium text-green-600 hover:underline"
                     >
-                      Learn More
+                      Daha Fazla Bilgi
                     </a>
                   </div>
                 </div>

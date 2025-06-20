@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -13,14 +14,16 @@ const firebaseConfig = {
 // Initialize Firebase only on client side
 let app;
 let messaging;
+let db;
 
 if (typeof window !== 'undefined') {
   try {
     app = initializeApp(firebaseConfig);
     messaging = getMessaging(app);
+    db = getFirestore(app);
   } catch (error) {
     console.error("Error initializing Firebase:", error);
   }
 }
 
-export { messaging, getToken, onMessage }; 
+export { messaging, getToken, onMessage, db, app }; 

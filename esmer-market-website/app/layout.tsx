@@ -62,6 +62,7 @@ function Navigation() {
             <a href="/location" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.location')}</a>
             <a href="/contact" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.contact')}</a>
             <a href="/news" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.news')}</a>
+            <a href="/reviews" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.reviews')}</a>
             <div className="auth-buttons flex items-center">
               <LanguageSwitcher />
             </div>
@@ -96,6 +97,7 @@ function Navigation() {
           <a href="/location" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.location')}</a>
           <a href="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.contact')}</a>
           <a href="/news" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.news')}</a>
+          <a href="/reviews" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.reviews')}</a>
           <div className="px-3 py-2">
             <div className="auth-buttons flex items-center space-x-4">
               <LanguageSwitcher />
@@ -116,7 +118,7 @@ export default function RootLayout({
   
   return (
     <LanguageProvider>
-      <html lang="en">
+      <html lang="tr">
         <body className={inter.className}>
           <FirebaseInit />
           <Navigation />
@@ -144,6 +146,7 @@ export default function RootLayout({
                     <li><a href="/location" className="text-sm text-gray-600 hover:text-green-600">{t('footer.location_hours')}</a></li>
                     <li><a href="/contact" className="text-sm text-gray-600 hover:text-green-600">{t('footer.contact_us')}</a></li>
                     <li><a href="/news" className="text-sm text-gray-600 hover:text-green-600">{t('footer.news_events')}</a></li>
+                    <li><a href="/reviews" className="text-sm text-gray-600 hover:text-green-600">{t('footer.reviews')}</a></li>
                     {/* Temporarily hidden
                     <li><a href="/reservations" className="text-sm text-gray-600 hover:text-green-600">{t('navigation.reservations')}</a></li>
                     <li><a href="/reservations/lookup" className="text-sm text-gray-600 hover:text-green-600">{t('navigation.lookup')}</a></li>

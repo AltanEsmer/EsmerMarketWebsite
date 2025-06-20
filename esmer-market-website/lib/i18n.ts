@@ -19,8 +19,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en', // Default language
-    fallbackLng: 'en', // Fallback language
+    lng: 'tr', // Default language changed to Turkish
+    fallbackLng: 'tr', // Fallback language changed to Turkish
     
     ns: ['common'], // Namespaces
     defaultNS: 'common',

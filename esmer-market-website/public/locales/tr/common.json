@@ -9,7 +9,8 @@
     "reservations": "Rezervasyonlar",
     "lookup": "Rezervasyonlarım",
     "admin": "Yönetici Paneli",
-    "signin": "Giriş Yap"
+    "signin": "Giriş Yap",
+    "reviews": "Müşteri Yorumları"
   },
   "footer": {
     "description": "Taze ürünler, özel ürünler ve günlük ihtiyaçlar için yerel marketiniz.",
@@ -24,6 +25,7 @@
     "location_hours": "Konum & Çalışma Saatleri",
     "contact_us": "Bize Ulaşın",
     "news_events": "Haberler & Etkinlikler",
+    "reviews": "Müşteri Yorumları",
     "rights_reserved": "Tüm hakları saklıdır"
   },
   "language": {
