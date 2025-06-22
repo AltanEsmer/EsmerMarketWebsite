@@ -31,5 +31,11 @@
   "language": {
     "name": "English",
     "switch": "Switch to Turkish"
+  },
+  "store": {
+    "open": "Open",
+    "closed": "Closed",
+    "hours": "Store Hours",
+    "today": "Today's Hours"
   }
 } 

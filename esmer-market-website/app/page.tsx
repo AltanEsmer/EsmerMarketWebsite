@@ -1,22 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import NotificationPermission from "./components/NotificationPermission";
+import IsOpenIndicator from "./components/IsOpenIndicator";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-16 md:py-24 lg:py-32 bg-green-50">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-green-50 dark:bg-green-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center space-y-6 text-center">
             <div className="space-y-4 max-w-3xl mx-auto">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-green-600">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-green-600 dark:text-green-500">
                 Esmer Market'e Hoşgeldiniz
               </h1>
-              <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
                 Taze ürünler, özel ürünler ve günlük ihtiyaçlar için yerel marketiniz.
               </p>
+              
+              {/* Store Status Indicator */}
+              <div className="mt-6 flex justify-center">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white dark:bg-gray-800 shadow-sm">
+                  <IsOpenIndicator />
+                </div>
+              </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a
@@ -27,13 +34,10 @@ export default function Home() {
               </a>
               <a
                 href="/location"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-base font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-700 px-8 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
               >
                 Mağazamızı Bul
               </a>
-            </div>
-            <div className="mt-4">
-              <NotificationPermission className="p-4 bg-white rounded-md shadow-sm" />
             </div>
           </div>
         </div>

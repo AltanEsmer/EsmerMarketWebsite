@@ -31,5 +31,11 @@
   "language": {
     "name": "Türkçe",
     "switch": "İngilizce'ye Geç"
+  },
+  "store": {
+    "open": "Açık",
+    "closed": "Kapalı",
+    "hours": "Çalışma Saatleri",
+    "today": "Bugünkü Çalışma Saatleri"
   }
 } 

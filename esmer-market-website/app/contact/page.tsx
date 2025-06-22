@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import IsOpenIndicator from '../components/IsOpenIndicator';
 
 export default function ContactPage() {
   // Form state
@@ -179,13 +180,13 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-16 md:py-24 bg-green-50">
+      <section className="w-full py-16 md:py-24 bg-green-50 dark:bg-green-950">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-gray-900 mb-6">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-gray-900 dark:text-gray-100 mb-6">
               Bize Ulaşın
             </h1>
-            <p className="text-xl text-gray-700">
+            <p className="text-xl text-gray-700 dark:text-gray-300">
               Sizden haber almaktan memnuniyet duyarız. Bize mesaj gönderin veya aşağıdaki iletişim bilgilerimizden bize ulaşın.
             </p>
           </div>
@@ -196,9 +197,9 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Contact Form */}
-            <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Bize Mesaj Gönderin</h2>
-              <p className="text-gray-700 mb-6">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Bize Mesaj Gönderin</h2>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
                 Aşağıdaki formu doldurun, en kısa sürede size geri dönüş yapacağız.
               </p>
               
@@ -357,99 +358,70 @@ export default function ContactPage() {
             </div>
             
             {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">İletişim Bilgileri</h2>
-                <p className="text-gray-700">
-                  Aşağıdaki iletişim bilgilerini kullanarak da bize ulaşabilirsiniz.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
+            <div>
+              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">İletişim Bilgileri</h2>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-3">
+                    <svg className="h-6 w-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Mağaza Adresi</h3>
-                      <address className="mt-2 not-italic text-gray-700">
-                        <p>Yenikent Bulvarı, Yeni Boğaziçi</p>
-                      </address>
+                      <h3 className="font-medium text-gray-900 dark:text-gray-100">Adres</h3>
+                      <p className="text-gray-600 dark:text-gray-400">Yenikent Bulvarı, Yeni Boğaziçi GaziMağusa</p>
                     </div>
                   </div>
-                </div>
-                
-                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <svg className="h-6 w-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Müşteri Hizmetleri</h3>
-                      <div className="mt-2 space-y-1 text-gray-700">
-                        <p>
-                          <strong>Telefon:</strong> +905338214575
-                        </p>
-                        <p>
-                          <strong>E-posta:</strong> info@esmermarket.com
-                        </p>
-                        <p>
-                          <strong>Çalışma Saatleri:</strong> Her gün, 08:00 - 24:00
-                        </p>
-                      </div>
+                      <h3 className="font-medium text-gray-900 dark:text-gray-100">Telefon</h3>
+                      <p className="text-gray-600 dark:text-gray-400">+90 533 825 7214</p>
                     </div>
                   </div>
-                </div>
-                
-                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <svg className="h-6 w-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900">Bizi Takip Edin</h3>
-                      <div className="mt-4 flex gap-4">
-                        <a href="#" className="text-gray-500 hover:text-green-500" aria-label="Facebook">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                          </svg>
-                        </a>
-                        <a href="#" className="text-gray-500 hover:text-green-500" aria-label="Instagram">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                          </svg>
-                        </a>
-                        <a href="#" className="text-gray-500 hover:text-green-500" aria-label="Twitter">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                          </svg>
-                        </a>
+                      <h3 className="font-medium text-gray-900 dark:text-gray-100">E-posta</h3>
+                      <p className="text-gray-600 dark:text-gray-400">info@esmermarket.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <svg className="h-6 w-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <h3 className="font-medium text-gray-900 dark:text-gray-100">Çalışma Saatleri</h3>
+                      <p className="text-gray-600 dark:text-gray-400">Pazartesi-Pazar: 08:00 - 22:00</p>
+                      <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-700">
+                        <IsOpenIndicator />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Çalışma Saatleri</h3>
-                <table className="w-full text-gray-700">
-                  <tbody>
-                    <tr>
-                      <td className="py-2 pr-4 font-medium">Her Gün</td>
-                      <td className="py-2">08:00 - 24:00</td>
-                    </tr>
-                  </tbody>
-                </table>
+              {/* Map */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-sm">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Konum</h2>
+                <div className="aspect-video overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-700 shadow-sm relative">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3265.0600505816297!2d33.9116!3d35.1245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA3JzI4LjIiTiAzM8KwNTQnNDEuOCJF!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
+                    allowFullScreen={true} 
+                    loading="lazy"
+                    title="Esmer Market Location"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
