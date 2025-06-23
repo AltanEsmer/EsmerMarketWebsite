@@ -3,6 +3,8 @@ import {
   collection, 
   getDocs, 
   addDoc, 
+  doc,
+  setDoc,
   serverTimestamp, 
   Firestore 
 } from 'firebase/firestore';
@@ -60,6 +62,59 @@ export async function initializeFirestoreCollections(): Promise<void> {
       });
       
       console.log('Sample reviews created successfully!');
+    }
+    
+    // Settings koleksiyonu kontrolü ve örnek veri
+    try {
+      const settingsDocRef = doc(db as Firestore, 'settings', 'siteSettings');
+      const settingsSnapshot = await getDocs(collection(db as Firestore, 'settings'));
+      
+      if (settingsSnapshot.empty) {
+        console.log('Creating site settings data...');
+        
+        // Örnek site ayarları ekle
+        await setDoc(settingsDocRef, {
+          storeName: "Esmer Market",
+          storePhone: "+905338257214",
+          storeEmail: "info@esmermarket.com",
+          storeAddress: "Yenikent Bulvarı, Yeni Boğaziçi",
+          openingHours: {
+            monday: "08:00 - 19:00",
+            tuesday: "08:00 - 19:00",
+            wednesday: "08:00 - 19:00",
+            thursday: "08:00 - 19:00",
+            friday: "08:00 - 19:00",
+            saturday: "08:00 - 19:00",
+            sunday: "Kapalı",
+          },
+          socialMedia: {
+            facebook: "https://facebook.com/esmermarket",
+            instagram: "https://instagram.com/esmermarket",
+            twitter: "",
+          },
+          updatedAt: serverTimestamp()
+        });
+        
+        console.log('Site settings created successfully!');
+      }
+    } catch (error) {
+      console.error('Error initializing settings collection:', error);
+    }
+    
+    // AdminUsers koleksiyonu kontrolü
+    try {
+      // Kullanıcı giriş yapmış mı kontrol et
+      const adminUsersCollection = collection(db as Firestore, 'adminUsers');
+      const adminUsersSnapshot = await getDocs(adminUsersCollection);
+      
+      // Eğer admin kullanıcısı yoksa ve kullanıcı kimlik doğrulaması yapmışsa
+      if (adminUsersSnapshot.empty) {
+        console.log('No admin users found. You need to create an admin user through Firebase Authentication first.');
+        console.log('Then manually add the user to the adminUsers collection with the user ID as the document ID.');
+        console.log('Example: db.collection("adminUsers").doc(uid).set({ email: "admin@example.com", role: "admin", createdAt: serverTimestamp() })');
+      }
+    } catch (error) {
+      console.error('Error checking admin users collection:', error);
     }
     
     console.log('Firestore collections initialization complete');

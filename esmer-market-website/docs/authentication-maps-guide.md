@@ -45,13 +45,13 @@ The location page uses an embedded Google Maps iframe to display the Esmer Marke
 1. **Embedded Map URL**:
    The map is embedded using an iframe with a URL that contains the location coordinates:
    ```javascript
-   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.048541565089!2d33.91362399999999!3d35.295954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDE3JzQ1LjQiTiAzM8KwNTQnNDkuMCJF!5e0!3m2!1sen!2s!4v1615680000000!5m2!1sen!2s";
+   const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.2991744011166!2d33.89203387677729!3d35.22227797979391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDEzJzIwLjIiTiAzM8KwNTMnMzkuMiJF!5e0!3m2!1sen!2s!4v1615680000000!5m2!1sen!2s";
    ```
 
 2. **Get Directions URL**:
    The "Get Directions" button uses a URL that opens Google Maps directions to Esmer Market:
    ```javascript
-   const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=Esmer+Market+Yenikent+Bulvarı+Yeni+Boğaziçi";
+   const directionsUrl = "https://www.google.com/maps/dir/?api=1&destination=35.222278,33.894222";
    ```
 
 ### Updating the Map

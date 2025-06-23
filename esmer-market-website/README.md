@@ -20,6 +20,39 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Firebase Setup
+
+This project uses Firebase for authentication, database, and messaging. Follow these steps to set up Firebase:
+
+1. Create a Firebase project in the [Firebase Console](https://console.firebase.google.com/)
+2. Add a web app to your project
+3. Copy the Firebase configuration to `.env.local` (use `.env.example` as a template)
+4. Enable Email/Password authentication in the Firebase Console
+5. Create a Firestore database in test mode
+
+For detailed setup instructions, see:
+- [Firebase Authentication Setup](./FIREBASE_AUTH_SETUP.md)
+- [Firestore Setup](./docs/firestore-setup.md)
+- [FCM Setup](./docs/fcm-setup.md)
+
+## Fixing Firebase Permissions Errors
+
+If you encounter "Missing or insufficient permissions" errors:
+
+1. Apply the correct Firestore security rules by following the guide in [Apply Firestore Rules](./docs/apply-firestore-rules.md)
+2. Make sure you have created an admin user in Firebase Authentication
+3. Add the admin user to the adminUsers collection in Firestore using the provided script:
+
+```bash
+# Install dotenv if not already installed
+npm install dotenv
+
+# Run the script with the user's UID and email
+node scripts/create-admin-user.js <user-uid> <user-email>
+```
+
+4. Sign out and sign back in to refresh authentication tokens
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

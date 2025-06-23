@@ -7,20 +7,20 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="w-full py-16 md:py-24 lg:py-32 bg-green-50 dark:bg-green-950">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-green-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center space-y-6 text-center">
             <div className="space-y-4 max-w-3xl mx-auto">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-green-600 dark:text-green-500">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-green-600">
                 Esmer Market'e Hoşgeldiniz
               </h1>
-              <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-2xl mx-auto">
                 Taze ürünler, özel ürünler ve günlük ihtiyaçlar için yerel marketiniz.
               </p>
               
               {/* Store Status Indicator */}
               <div className="mt-6 flex justify-center">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white dark:bg-gray-800 shadow-sm">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white shadow-sm">
                   <IsOpenIndicator />
                 </div>
               </div>
@@ -34,7 +34,7 @@ export default function Home() {
               </a>
               <a
                 href="/location"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white dark:bg-gray-800 dark:border-gray-700 px-8 text-base font-medium text-gray-700 dark:text-gray-300 shadow-sm transition-colors hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-base font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
               >
                 Mağazamızı Bul
               </a>
@@ -252,21 +252,21 @@ export default function Home() {
               <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
                 <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
                   {/* Replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                    <span className="text-amber-800 text-sm">Görsel Yer Tutucu</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+                    <span className="text-green-800 text-sm">Görsel Yer Tutucu</span>
                   </div>
                 </div>
                 <div className="p-5 space-y-2">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
+                    <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
                       Etkinlik
                     </span>
                     <span className="text-xs text-gray-500">5 Nisan 2023</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Yemek Atölyesi: Akdeniz Mutfağı</h3>
-                  <p className="text-sm text-gray-600">Önümüzdeki Cumartesi şefimizle birlikte yemek atölyesine katılın!</p>
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Yerel Üreticiler Günü: 20 Nisan</h3>
+                  <p className="text-sm text-gray-600">Yerel üreticilerimizle tanışın ve ürünlerini tadın.</p>
                   <div className="pt-2">
-                    <a href="/news#cooking-workshop" className="text-sm font-medium text-green-600 hover:text-green-700">Daha fazla →</a>
+                    <a href="/news#local-producers" className="text-sm font-medium text-green-600 hover:text-green-700">Daha fazla →</a>
                   </div>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function Home() {
             <div className="mt-8">
               <a
                 href="/news"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-8 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-white border border-gray-300 px-8 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
               >
                 Tüm Haberleri Gör
               </a>

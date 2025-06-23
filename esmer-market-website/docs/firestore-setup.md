@@ -64,6 +64,24 @@ service cloud.firestore {
       // Sadece kendi yorumlarını güncelleyebilir veya silebilir
       allow update, delete: if true;
     }
+    
+    // Settings koleksiyonu kuralları
+    match /settings/{settingId} {
+      // Herkes okuyabilir
+      allow read: if true;
+      
+      // Sadece kimlik doğrulaması yapılmış kullanıcılar güncelleyebilir
+      allow create, update, delete: if request.auth != null;
+    }
+    
+    // AdminUsers koleksiyonu kuralları
+    match /adminUsers/{userId} {
+      // Sadece kimlik doğrulaması yapılmış kullanıcılar okuyabilir
+      allow read: if request.auth != null;
+      
+      // Sadece kimlik doğrulaması yapılmış kullanıcılar güncelleyebilir
+      allow create, update, delete: if request.auth != null;
+    }
   }
 }
 ```
@@ -94,6 +112,35 @@ Yorum dokümanları aşağıdaki alanları içerir:
 - `comment`: string - Yorum metni
 - `createdAt`: timestamp - Oluşturulma tarihi
 - `avatar`: string (opsiyonel) - Profil resmi URL'i
+
+### Settings Koleksiyonu
+
+Site ayarları dokümanı aşağıdaki alanları içerir:
+
+- `storeName`: string - Market adı
+- `storePhone`: string - İletişim telefonu
+- `storeEmail`: string - İletişim e-postası
+- `storeAddress`: string - Market adresi
+- `openingHours`: object - Çalışma saatleri
+  - `monday`: string - Pazartesi saatleri
+  - `tuesday`: string - Salı saatleri
+  - `wednesday`: string - Çarşamba saatleri
+  - `thursday`: string - Perşembe saatleri
+  - `friday`: string - Cuma saatleri
+  - `saturday`: string - Cumartesi saatleri
+  - `sunday`: string - Pazar saatleri
+- `socialMedia`: object - Sosyal medya bağlantıları
+  - `facebook`: string - Facebook sayfası URL'i
+  - `instagram`: string - Instagram sayfası URL'i
+  - `twitter`: string - Twitter sayfası URL'i
+
+### AdminUsers Koleksiyonu
+
+Admin kullanıcı dokümanları aşağıdaki alanları içerir:
+
+- `email`: string - Kullanıcı e-posta adresi
+- `role`: string - Kullanıcı rolü (admin, editor vb.)
+- `createdAt`: timestamp - Oluşturulma tarihi
 
 ## 6. Örnek Verileri Otomatik Oluşturma
 
