@@ -10,7 +10,8 @@
     "lookup": "Rezervasyonlarım",
     "admin": "Yönetici Paneli",
     "signin": "Giriş Yap",
-    "reviews": "Müşteri Yorumları"
+    "reviews": "Müşteri Yorumları",
+    "gallery": "Galeri"
   },
   "footer": {
     "description": "Taze ürünler, özel ürünler ve günlük ihtiyaçlar için yerel marketiniz.",
@@ -26,6 +27,7 @@
     "contact_us": "Bize Ulaşın",
     "news_events": "Haberler & Etkinlikler",
     "reviews": "Müşteri Yorumları",
+    "gallery": "Galeri",
     "rights_reserved": "Tüm hakları saklıdır"
   },
   "language": {
@@ -37,5 +39,81 @@
     "closed": "Kapalı",
     "hours": "Çalışma Saatleri",
     "today": "Bugünkü Çalışma Saatleri"
+  },
+  "gallery": {
+    "title": "Market Galerimiz",
+    "description": "Marketimizin, ürünlerimizin ve ekibimizin görsel turunu yapın. Esmer Market'i özel yapan şeyleri görün.",
+    "visit_us": "Bizi Ziyaret Edin",
+    "visit_description": "Sizi marketimizde ağırlamaktan memnuniyet duyarız. Ürünlerimizi ve dostane hizmetimizi bizzat deneyimlemek için bizi ziyaret edin.",
+    "get_directions": "Yol Tarifi Al",
+    "contact_us": "Bize Ulaşın",
+    "virtualTour": "Sanal Tur Deneyimleyin"
+  },
+  "virtualTour": {
+    "title": "Sanal Market Turu",
+    "description": "Marketimizi 360° olarak deneyimleyin - yönlendirme noktalarını kullanarak farklı bölümlere gidin.",
+    "loading": "Panorama yükleniyor...",
+    "instructions": "Nasıl Gezilir",
+    "dragInstruction": "Etrafınıza bakmak için tıklayıp sürükleyin",
+    "zoomInstruction": "Yakınlaştırmak/uzaklaştırmak için fare tekerleğini veya parmak hareketlerini kullanın",
+    "hotspotInstruction": "Farklı alanlara gitmek için yönlendirme noktalarına (🚶) tıklayın",
+    "fullscreenInstruction": "Tam ekran deneyimi için tam ekran düğmesine tıklayın",
+    "backToGallery": "Galeriye Dön"
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "subtitle": "Sizden haber almak isteriz. Bize mesaj gönderin, en kısa sürede yanıt vereceğiz.",
+    "form": {
+      "title": "Bize Mesaj Gönderin",
+      "description": "Sorularınız, önerileriniz veya geri bildirimleriniz için aşağıdaki formu doldurabilirsiniz. En kısa sürede size geri dönüş yapacağız.",
+      "success": {
+        "title": "Mesajınız başarıyla gönderildi!",
+        "message": "En kısa sürede size geri dönüş yapacağız."
+      },
+      "error": {
+        "title": "Mesajınız gönderilemedi!",
+        "message": "Lütfen daha sonra tekrar deneyin."
+      },
+      "fields": {
+        "name": "İsim",
+        "email": "E-posta",
+        "subject": "Konu",
+        "subject_placeholder": "Konu Seçin",
+        "subject_options": {
+          "general": "Genel Bilgi",
+          "products": "Ürünler Hakkında",
+          "wholesale": "Toptan Satış",
+          "feedback": "Geri Bildirim",
+          "other": "Diğer"
+        },
+        "message": "Mesajınız"
+      },
+      "submit": "Mesajı Gönder",
+      "submitting": "Gönderiliyor..."
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "address": {
+        "title": "Adres",
+        "value": "Yenikent Bulvarı, Yeni Boğaziçi GaziMağusa"
+      },
+      "phone": {
+        "title": "Telefon",
+        "value": "+905338214575"
+      },
+      "email": {
+        "title": "E-posta",
+        "value": "eralp@esmermarket.com"
+      },
+      "hours": {
+        "title": "Çalışma Saatleri",
+        "value": "Pazartesi-Pazar: 08:00 - 22:00",
+        "currently_open": "Şu an açık"
+      }
+    },
+    "location": {
+      "title": "Konum",
+      "map_title": "Esmer Market Konumu"
+    }
   }
 } 

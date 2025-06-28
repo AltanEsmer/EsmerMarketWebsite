@@ -77,29 +77,29 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Bize Mesaj Gönderin</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.form.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Sorularınız, önerileriniz veya geri bildirimleriniz için aşağıdaki formu doldurabilirsiniz. En kısa sürede size geri dönüş yapacağız.
+                {t('contact.form.description')}
               </p>
               
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md text-green-800">
-                  <p className="font-medium">Mesajınız başarıyla gönderildi!</p>
-                  <p className="text-sm mt-1">En kısa sürede size geri dönüş yapacağız.</p>
+                  <p className="font-medium">{t('contact.form.success.title')}</p>
+                  <p className="text-sm mt-1">{t('contact.form.success.message')}</p>
                 </div>
               )}
               
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md text-red-800">
-                  <p className="font-medium">Mesajınız gönderilemedi!</p>
-                  <p className="text-sm mt-1">{errorMessage || 'Lütfen daha sonra tekrar deneyin.'}</p>
+                  <p className="font-medium">{t('contact.form.error.title')}</p>
+                  <p className="text-sm mt-1">{errorMessage || t('contact.form.error.message')}</p>
                 </div>
               )}
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    İsim
+                    {t('contact.form.fields.name')}
                   </label>
                   <input
                     type="text"
@@ -114,7 +114,7 @@ export default function ContactPage() {
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    E-posta
+                    {t('contact.form.fields.email')}
                   </label>
                   <input
                     type="email"
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Konu
+                    {t('contact.form.fields.subject')}
                   </label>
                   <select
                     id="subject"
@@ -139,18 +139,18 @@ export default function ContactPage() {
                     required
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
                   >
-                    <option value="">Konu Seçin</option>
-                    <option value="general">Genel Bilgi</option>
-                    <option value="products">Ürünler Hakkında</option>
-                    <option value="wholesale">Toptan Satış</option>
-                    <option value="feedback">Geri Bildirim</option>
-                    <option value="other">Diğer</option>
+                    <option value="">{t('contact.form.fields.subject_placeholder')}</option>
+                    <option value="general">{t('contact.form.fields.subject_options.general')}</option>
+                    <option value="products">{t('contact.form.fields.subject_options.products')}</option>
+                    <option value="wholesale">{t('contact.form.fields.subject_options.wholesale')}</option>
+                    <option value="feedback">{t('contact.form.fields.subject_options.feedback')}</option>
+                    <option value="other">{t('contact.form.fields.subject_options.other')}</option>
                   </select>
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Mesajınız
+                    {t('contact.form.fields.message')}
                   </label>
                   <textarea
                     id="message"
@@ -171,7 +171,7 @@ export default function ContactPage() {
                       isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
                     }`}
                   >
-                    {isSubmitting ? 'Gönderiliyor...' : 'Mesajı Gönder'}
+                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
                   </button>
                 </div>
               </form>
@@ -180,7 +180,7 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div>
               <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">İletişim Bilgileri</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.info.title')}</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
@@ -191,8 +191,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="font-medium text-gray-900">Adres</h3>
-                      <p className="text-gray-600">Yenikent Bulvarı, Yeni Boğaziçi GaziMağusa</p>
+                      <h3 className="font-medium text-gray-900">{t('contact.info.address.title')}</h3>
+                      <p className="text-gray-600">{t('contact.info.address.value')}</p>
                     </div>
                   </div>
                   
@@ -203,8 +203,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="font-medium text-gray-900">Telefon</h3>
-                      <p className="text-gray-600">+90 533 825 7214</p>
+                      <h3 className="font-medium text-gray-900">{t('contact.info.phone.title')}</h3>
+                      <p className="text-gray-600">{t('contact.info.phone.value')}</p>
                     </div>
                   </div>
                   
@@ -215,8 +215,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="font-medium text-gray-900">E-posta</h3>
-                      <p className="text-gray-600">info@esmermarket.com</p>
+                      <h3 className="font-medium text-gray-900">{t('contact.info.email.title')}</h3>
+                      <p className="text-gray-600">{t('contact.info.email.value')}</p>
                     </div>
                   </div>
                   
@@ -227,11 +227,11 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="font-medium text-gray-900">Çalışma Saatleri</h3>
-                      <p className="text-gray-600">Pazartesi-Pazar: 08:00 - 22:00</p>
+                      <h3 className="font-medium text-gray-900">{t('contact.info.hours.title')}</h3>
+                      <p className="text-gray-600">{t('contact.info.hours.value')}</p>
                       <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full bg-gray-100">
                         <span className="h-2 w-2 rounded-full bg-green-600 mr-2"></span>
-                        <span className="text-xs font-medium text-gray-800">Şu an açık</span>
+                        <span className="text-xs font-medium text-gray-800">{t('contact.info.hours.currently_open')}</span>
                       </div>
                     </div>
                   </div>
@@ -239,7 +239,7 @@ export default function ContactPage() {
               </div>
               
               <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Konum</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.location.title')}</h2>
                 <div className="aspect-video overflow-hidden rounded-lg bg-gray-100 shadow-sm relative">
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.2991744011166!2d33.89203387677729!3d35.22227797979391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDEzJzIwLjIiTiAzM8KwNTMnMzkuMiJF!5e0!3m2!1sen!2s!4v1615680000000!5m2!1sen!2s"
@@ -250,7 +250,7 @@ export default function ContactPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
-                    title="Esmer Market Konumu"
+                    title={t('contact.location.map_title')}
                   ></iframe>
                 </div>
               </div>

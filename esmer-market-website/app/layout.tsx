@@ -56,6 +56,7 @@ function Navigation() {
             <a href="/" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.home')}</a>
             <a href="/about" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.about')}</a>
             <a href="/products" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.products')}</a>
+            <a href="/gallery" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.gallery')}</a>
             {/* Temporarily hidden
             <a href="/reservations" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.reservations')}</a>
             <a href="/reservations/lookup" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.lookup')}</a>
@@ -91,6 +92,7 @@ function Navigation() {
           <a href="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.home')}</a>
           <a href="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.about')}</a>
           <a href="/products" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.products')}</a>
+          <a href="/gallery" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.gallery')}</a>
           {/* Temporarily hidden
           <a href="/reservations" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.reservations')}</a>
           <a href="/reservations/lookup" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.lookup')}</a>
@@ -149,6 +151,7 @@ export default function RootLayout({
                       <li><a href="/contact" className="text-sm text-gray-600 hover:text-green-600">{t('footer.contact_us')}</a></li>
                       <li><a href="/news" className="text-sm text-gray-600 hover:text-green-600">{t('footer.news_events')}</a></li>
                       <li><a href="/reviews" className="text-sm text-gray-600 hover:text-green-600">{t('footer.reviews')}</a></li>
+                      <li><a href="/gallery" className="text-sm text-gray-600 hover:text-green-600">{t('footer.gallery')}</a></li>
                       {/* Temporarily hidden
                       <li><a href="/reservations" className="text-sm text-gray-600 hover:text-green-600">{t('navigation.reservations')}</a></li>
                       <li><a href="/reservations/lookup" className="text-sm text-gray-600 hover:text-green-600">{t('navigation.lookup')}</a></li>
@@ -160,8 +163,8 @@ export default function RootLayout({
                     <address className="text-sm not-italic text-gray-600">
                       <p>Yenikent Bulvarı</p>
                       <p>Yeni Boğaziçi</p>
-                      <p className="mt-2">+905338257214</p>
-                      <p>info@esmermarket.com</p>
+                      <p className="mt-2">+905338214575</p>
+                      <p>eralp@esmermarket.com</p>
                     </address>
                   </div>
                 </div>

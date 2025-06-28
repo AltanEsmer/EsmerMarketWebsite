@@ -75,8 +75,8 @@ export async function initializeFirestoreCollections(): Promise<void> {
         // Örnek site ayarları ekle
         await setDoc(settingsDocRef, {
           storeName: "Esmer Market",
-          storePhone: "+905338257214",
-          storeEmail: "info@esmermarket.com",
+          storePhone: "+905338214575",
+          storeEmail: "eralp@esmermarket.com",
           storeAddress: "Yenikent Bulvarı, Yeni Boğaziçi",
           openingHours: {
             monday: "08:00 - 19:00",
