@@ -25,16 +25,16 @@ interface TourLocation {
 const tourLocations: TourLocation[] = [
   {
     id: "entrance",
-    title: "Market Entrance",
-    image: "/images/market.png", // Replace with actual 360 image
-    description: "Welcome to Esmer Market's main entrance",
+    title: "Market Entrance Area",
+    image: "/images/panoramas/pano1.jpg",
+    description: "The welcoming entrance area of Esmer Market",
     hotspots: [
       {
         type: "custom",
         pitch: 0,
         yaw: -35,
         targetScene: "produce",
-        text: "Go to Fresh Produce"
+        text: "Go to Main Shopping Area"
       },
       {
         type: "info",
@@ -46,44 +46,44 @@ const tourLocations: TourLocation[] = [
   },
   {
     id: "produce",
-    title: "Fresh Produce Section",
-    image: "/images/freshProduce.jpg", // Replace with actual 360 image
-    description: "Our fresh fruits and vegetables section",
+    title: "Main Shopping Area",
+    image: "/images/panoramas/pano2.jpg",
+    description: "Browse our wide selection of fresh products and groceries",
     hotspots: [
       {
         type: "custom",
         pitch: 0,
         yaw: 150,
         targetScene: "entrance",
-        text: "Back to Entrance"
+        text: "Back to Entrance Area"
       },
       {
         type: "custom",
         pitch: 0,
         yaw: -60,
         targetScene: "bakery",
-        text: "Go to Bakery"
+        text: "Go to Specialty Section"
       }
     ]
   },
   {
     id: "bakery",
-    title: "Bakery Section",
-    image: "/images/bakery.jpg", // Replace with actual 360 image
-    description: "Our freshly baked goods section",
+    title: "Specialty Products Section",
+    image: "/images/panoramas/pano3.jpg",
+    description: "Discover our specialty products and local delicacies",
     hotspots: [
       {
         type: "custom",
         pitch: 0,
         yaw: 120,
         targetScene: "produce",
-        text: "Back to Produce"
+        text: "Back to Main Shopping Area"
       },
       {
         type: "info",
         pitch: -10,
         yaw: 0,
-        text: "Fresh bread baked daily"
+        text: "Featuring local and imported specialties"
       }
     ]
   }

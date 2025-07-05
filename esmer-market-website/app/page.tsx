@@ -15,7 +15,7 @@ export default function Home() {
                 Esmer Market'e Hoşgeldiniz
               </h1>
               <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-                Taze ürünler, özel ürünler ve günlük ihtiyaçlar için yerel marketiniz.
+                Yeni Boğaziçi'nin kalbinde, sıcak atmosferi ile hizmetinizdeyiz.
               </p>
               
               {/* Store Status Indicator */}
@@ -27,14 +27,8 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a
-                href="/products"
-                className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
-              >
-                Ürünlere Göz At
-              </a>
-              <a
                 href="/gallery"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-gray-300 bg-white px-8 text-base font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                className="inline-flex h-12 items-center justify-center rounded-md bg-green-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
               >
                 Mağaza Galerisi
               </a>
@@ -49,84 +43,151 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section */}
+      {/* Market Experience Section */}
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-center space-y-8 text-center">
             <div className="space-y-3 max-w-3xl">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-900">Öne Çıkan Ürünler</h2>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-900">Esmer Market Deneyimi</h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Taze ürün ve özel ürün seçkimizi keşfedin.
+                Sıcak atmosfer ve samimi hizmet anlayışımızla fark yaratıyoruz
               </p>
             </div>
+            
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 w-full max-w-6xl">
-              {/* Product Card 1 */}
-              <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div className="aspect-square w-full overflow-hidden rounded-t-lg bg-gray-100 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
+              {/* Experience Card 1 - Tradition */}
+              <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
+                <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
                   <Image
-                  src="/images/VegetablesMain.jpg"
-                  alt="Sebze Ana"
-                  fill
-                  className="object-cover"
-                />                  </div>
+                    src="/images/team.jpg"
+                    alt="Esmer Market Ekibi"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="p-4">
+                      <h3 className="text-xl font-bold text-white">Aile Geleneği</h3>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-5 space-y-2">
-                  <h3 className="text-lg font-semibold text-gray-900">Taze Organik Sebzeler</h3>
-                  <p className="text-gray-600">Yerel kaynaklı ve organik</p>
-                  <div className="pt-2">
-                    <a href="/products#fresh-produce" className="text-sm font-medium text-green-600 hover:text-green-700">Şimdi Keşfet →</a>
+                <div className="p-5 space-y-2 flex-grow">
+                  <p className="text-gray-600">Yıllardır sürdürdüğümüz aile geleneğimiz ile yerel halkımıza en iyi hizmeti sunuyoruz.</p>
+                  <div className="pt-2 mt-auto">
+                    <a href="/about" className="text-sm font-medium text-green-600 hover:text-green-700">Hikayemizi Keşfet →</a>
                   </div>
                 </div>
               </div>
               
-              {/* Product Card 2 */}
-              <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div className="aspect-square w-full overflow-hidden rounded-t-lg bg-gray-100 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center">
+              {/* Experience Card 2 - Community */}
+              <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
+                <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
                   <Image
-                  src="/images/CheeseMain.jpg"
-                  alt="Peynir Ana"
-                  fill
-                  className="object-cover"
-                />                  </div>
+                    src="/images/market.png"
+                    alt="Market Topluluk"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="p-4">
+                      <h3 className="text-xl font-bold text-white">Topluluk Merkezi</h3>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-5 space-y-2">
-                  <h3 className="text-lg font-semibold text-gray-900">El Yapımı Peynirler</h3>
-                  <p className="text-gray-600">Yerel ve uluslararası üreticilerden</p>
-                  <div className="pt-2">
-                    <a href="/products#dairy-cheese" className="text-sm font-medium text-green-600 hover:text-green-700">Şimdi Keşfet →</a>
+                <div className="p-5 space-y-2 flex-grow">
+                  <p className="text-gray-600">Sadece bir market değil, aynı zamanda komşularınızla buluşabileceğiniz bir topluluk merkeziyiz.</p>
+                  <div className="pt-2 mt-auto">
+                    <a href="/reviews" className="text-sm font-medium text-green-600 hover:text-green-700">Müşteri Deneyimleri →</a>
                   </div>
                 </div>
               </div>
               
-              {/* Product Card 3 */}
-              <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div className="aspect-square w-full overflow-hidden rounded-t-lg bg-gray-100 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
+              {/* Experience Card 3 - Location */}
+              <div className="flex flex-col rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md overflow-hidden">
+                <div className="aspect-square w-full overflow-hidden bg-gray-100 relative">
                   <Image
-                  src="/images/BreadMain.jpg"
-                  alt="Fırın Ana"
-                  fill
-                  className="object-cover"
-                />
+                    src="/images/map.png"
+                    alt="Konum"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div className="p-4">
+                      <h3 className="text-xl font-bold text-white">Merkezi Konum</h3>
+                    </div>
                   </div>
                 </div>
-                <div className="p-5 space-y-2">
-                  <h3 className="text-lg font-semibold text-gray-900">Taze Fırın Ürünleri</h3>
-                  <p className="text-gray-600">Mağazamızda her gün pişirilir</p>
-                  <div className="pt-2">
-                    <a href="/products#bakery" className="text-sm font-medium text-green-600 hover:text-green-700">Şimdi Keşfet →</a>
+                <div className="p-5 space-y-2 flex-grow">
+                  <p className="text-gray-600">Yeni Boğaziçi'nin kalbinde, kolay ulaşılabilir bir konumda hizmet veriyoruz.</p>
+                  <div className="pt-2 mt-auto">
+                    <a href="/location" className="text-sm font-medium text-green-600 hover:text-green-700">Konumumuzu Gör →</a>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Market Atmosphere Section */}
+      <section className="w-full py-16 md:py-24 bg-amber-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-center space-y-8">
+            <div className="space-y-3 max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-900">Market Atmosferi</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Sıcak ve samimi bir ortamda alışveriş deneyimi
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+              <div className="bg-white rounded-xl shadow-sm border border-amber-100 p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Güler Yüzlü Ekip</h3>
+                <p className="text-gray-600">Her zaman yardıma hazır, güler yüzlü çalışanlarımız</p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-sm border border-amber-100 p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Rahat Ortam</h3>
+                <p className="text-gray-600">Ferah ve düzenli market ortamı</p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-sm border border-amber-100 p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Uzun Çalışma Saatleri</h3>
+                <p className="text-gray-600">Her gün 07:00 - 01:00 arası hizmetinizdeyiz</p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-sm border border-amber-100 p-6 flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Kolay Ulaşım</h3>
+                <p className="text-gray-600">Yeterli otopark ve merkezi konum</p>
+              </div>
+            </div>
+            
             <div className="mt-8">
               <a
-                href="/products"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-white border border-gray-300 px-8 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
+                href="/gallery"
+                className="inline-flex h-12 items-center justify-center rounded-md bg-amber-600 px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-amber-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
               >
-                Tüm Ürünleri Gör
+                Mağazamızı Keşfet
               </a>
             </div>
           </div>
@@ -141,7 +202,7 @@ export default function Home() {
               <div className="space-y-3">
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-900">Mağazamızı Ziyaret Edin</h2>
                 <p className="text-lg text-gray-600">
-                  Geniş taze ürün ve özel ürün seçimimizi deneyimlemek için bizi ziyaret edin.
+                  Sıcak atmosferimizi ve samimi hizmetimizi deneyimlemek için bizi ziyaret edin.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
@@ -175,115 +236,25 @@ export default function Home() {
                   </svg>
                   <div>
                     <h3 className="font-medium text-gray-900">Çalışma Saatleri</h3>
-                    <p>Pazartesi-Pazar: 08:00 - 24:00</p>
+                    <p>Pazartesi-Pazar: 07:00 - 01:00</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="aspect-video overflow-hidden rounded-xl bg-gray-100 shadow-md relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200 flex flex-col items-center justify-center p-6 text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <p className="text-gray-600 font-medium">Yenikent Bulvarı, Yeni Boğaziçi GaziMağusa</p>
-                <p className="text-sm text-gray-500 mt-1">Mağazamızı ziyaret edin veya yol tarifi için bize ulaşın</p>
-                <a href="/contact" className="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700">
+              <Image
+                src="/images/map.png"
+                alt="Esmer Market Harita"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col items-center justify-end p-6 text-center">
+                <p className="text-white font-medium">Yenikent Bulvarı, Yeni Boğaziçi GaziMağusa</p>
+                <p className="text-sm text-gray-200 mt-1">Mağazamızı ziyaret edin veya yol tarifi için bize ulaşın</p>
+                <a href="/location" className="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow-sm transition-colors hover:bg-green-700">
                   Yol Tarifi Al
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest News Section */}
-      <section className="w-full py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center space-y-8 text-center">
-            <div className="space-y-3 max-w-3xl">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-gray-900">Son Haberler & Promosyonlar</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                En son ürünlerimiz ve özel tekliflerimizden haberdar olun.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-8 w-full max-w-6xl">
-              {/* News Card 1 */}
-              <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  {/* Replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
-                    <span className="text-red-800 text-sm">Görsel Yer Tutucu</span>
-                  </div>
-                </div>
-                <div className="p-5 space-y-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
-                      Özel Teklif
-                    </span>
-                    <span className="text-xs text-gray-500">15 Nisan 2023</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Hafta Sonu Özel: Taze Meyvelerde %20 İndirim</h3>
-                  <p className="text-sm text-gray-600">Sadece bu hafta sonu tüm taze meyvelerde %20 indirim!</p>
-                  <div className="pt-2">
-                    <a href="/news#promotions" className="text-sm font-medium text-green-600 hover:text-green-700">Daha fazla →</a>
-                  </div>
-                </div>
-              </div>
-              
-              {/* News Card 2 */}
-              <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  {/* Replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                    <span className="text-blue-800 text-sm">Görsel Yer Tutucu</span>
-                  </div>
-                </div>
-                <div className="p-5 space-y-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                      Haber
-                    </span>
-                    <span className="text-xs text-gray-500">10 Nisan 2023</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Yeni Organik Bölümümüz Açıldı</h3>
-                  <p className="text-sm text-gray-600">Organik bölümümüzü yeni ürünlerle genişlettik.</p>
-                  <div className="pt-2">
-                    <a href="/news#organic-section" className="text-sm font-medium text-green-600 hover:text-green-700">Daha fazla →</a>
-                  </div>
-                </div>
-              </div>
-              
-              {/* News Card 3 */}
-              <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
-                <div className="aspect-video w-full overflow-hidden bg-gray-100 relative">
-                  {/* Replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-                    <span className="text-green-800 text-sm">Görsel Yer Tutucu</span>
-                  </div>
-                </div>
-                <div className="p-5 space-y-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                      Etkinlik
-                    </span>
-                    <span className="text-xs text-gray-500">5 Nisan 2023</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-600">Yerel Üreticiler Günü: 20 Nisan</h3>
-                  <p className="text-sm text-gray-600">Yerel üreticilerimizle tanışın ve ürünlerini tadın.</p>
-                  <div className="pt-2">
-                    <a href="/news#local-producers" className="text-sm font-medium text-green-600 hover:text-green-700">Daha fazla →</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8">
-              <a
-                href="/news"
-                className="inline-flex h-10 items-center justify-center rounded-md bg-white border border-gray-300 px-8 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300"
-              >
-                Tüm Haberleri Gör
-              </a>
             </div>
           </div>
         </div>

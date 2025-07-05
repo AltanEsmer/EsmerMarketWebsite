@@ -12,6 +12,20 @@ export async function middleware(request: NextRequest) {
   // Check if the request is for an admin route
   const { pathname } = request.nextUrl;
   
+  // Redirect from products page
+  if (pathname === '/products' || pathname.startsWith('/products/')) {
+    console.log('Middleware: Redirecting from products page to home');
+    const url = new URL('/', request.url);
+    return NextResponse.redirect(url);
+  }
+  
+  // Redirect from virtual tour page
+  if (pathname === '/gallery/virtual-tour' || pathname.startsWith('/gallery/virtual-tour/')) {
+    console.log('Middleware: Redirecting from virtual tour page to gallery');
+    const url = new URL('/gallery', request.url);
+    return NextResponse.redirect(url);
+  }
+  
   // Check for Firebase auth token in cookies
   const idToken = request.cookies.get('firebase-id-token')?.value;
   

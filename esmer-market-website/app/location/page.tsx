@@ -58,8 +58,8 @@ export default function LocationPage() {
                   <table className="w-full text-gray-700">
                     <tbody>
                       <tr className="border-b">
-                        <td className="py-3 pr-4 text-lg font-medium">Her Gün</td>
-                        <td className="py-3 text-lg">08:00 - 22:00</td>
+                        <td className="py-3 pr-4 text-lg font-medium">Pazartesi-Pazar</td>
+                        <td className="py-3 text-lg">07:00 - 01:00</td>
                       </tr>
                     </tbody>
                   </table>

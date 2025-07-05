@@ -6,37 +6,26 @@ import i18n from './i18n';
 
 type LanguageContextType = {
   language: string;
-  setLanguage: (lang: string) => void;
 };
 
 const LanguageContext = createContext<LanguageContextType>({
   language: 'tr',
-  setLanguage: () => {},
 });
 
 export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  const [language, setLanguageState] = useState('tr');
+  const [language] = useState('tr');
   const { i18n } = useTranslation();
 
-  // Load saved language preference from localStorage when available
+  // Set language to Turkish on mount
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage) {
-      setLanguage(savedLanguage);
-    }
-  }, []);
-
-  const setLanguage = (lang: string) => {
-    setLanguageState(lang);
-    i18n.changeLanguage(lang);
-    localStorage.setItem('language', lang);
-    document.documentElement.lang = lang; // Update html lang attribute
-  };
+    i18n.changeLanguage('tr');
+    document.documentElement.lang = 'tr'; // Update html lang attribute
+  }, [i18n]);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language }}>
       {children}
     </LanguageContext.Provider>
   );

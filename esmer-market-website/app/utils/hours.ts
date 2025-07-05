@@ -10,16 +10,15 @@ export type WeekHours = {
   [key: number]: DayHours; // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 };
 
-// Default hours: 8:00 AM to 10:00 PM (22:00)
-// Sunday might have different hours or be closed
+// Hours: 7:00 AM to 1:00 AM (next day)
 export const storeHours: WeekHours = {
-  0: { open: 9, close: 20 },  // Sunday: 9:00 AM - 8:00 PM
-  1: { open: 8, close: 22 },  // Monday: 8:00 AM - 10:00 PM
-  2: { open: 8, close: 22 },  // Tuesday: 8:00 AM - 10:00 PM
-  3: { open: 8, close: 22 },  // Wednesday: 8:00 AM - 10:00 PM
-  4: { open: 8, close: 22 },  // Thursday: 8:00 AM - 10:00 PM
-  5: { open: 8, close: 22 },  // Friday: 8:00 AM - 10:00 PM
-  6: { open: 8, close: 22 },  // Saturday: 8:00 AM - 10:00 PM
+  0: { open: 7, close: 25 },  // Sunday: 7:00 AM - 1:00 AM (next day)
+  1: { open: 7, close: 25 },  // Monday: 7:00 AM - 1:00 AM (next day)
+  2: { open: 7, close: 25 },  // Tuesday: 7:00 AM - 1:00 AM (next day)
+  3: { open: 7, close: 25 },  // Wednesday: 7:00 AM - 1:00 AM (next day)
+  4: { open: 7, close: 25 },  // Thursday: 7:00 AM - 1:00 AM (next day)
+  5: { open: 7, close: 25 },  // Friday: 7:00 AM - 1:00 AM (next day)
+  6: { open: 7, close: 25 },  // Saturday: 7:00 AM - 1:00 AM (next day)
 };
 
 /**
@@ -39,8 +38,8 @@ export function isStoreOpen(): boolean {
   const { open, close } = storeHours[day];
   
   // Handle cases where closing time is on the next day
-  if (close < open) {
-    return hour >= open || hour < close;
+  if (close > 24) {
+    return hour >= open || hour < (close - 24);
   }
   
   // Normal case: open and close on the same day
@@ -60,7 +59,7 @@ export function getStoreStatus() {
     isOpen,
     currentDay: day,
     openingHour: todayHours?.open,
-    closingHour: todayHours?.close,
+    closingHour: todayHours?.close > 24 ? todayHours?.close - 24 : todayHours?.close,
     statusText: isOpen ? 'open' : 'closed',
   };
 } 

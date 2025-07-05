@@ -3,7 +3,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../lib/LanguageContext";
-import LanguageSwitcher from "./components/LanguageSwitcher";
 import { useEffect } from "react";
 import "../lib/i18n";
 import { useTranslation } from "react-i18next";
@@ -55,7 +54,7 @@ function Navigation() {
           <nav className="hidden md:flex items-center space-x-8">
             <a href="/" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.home')}</a>
             <a href="/about" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.about')}</a>
-            <a href="/products" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.products')}</a>
+            {/* Products page hidden */}
             <a href="/gallery" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.gallery')}</a>
             {/* Temporarily hidden
             <a href="/reservations" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.reservations')}</a>
@@ -63,11 +62,11 @@ function Navigation() {
             */}
             <a href="/location" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.location')}</a>
             <a href="/contact" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.contact')}</a>
+            {/* Temporarily hidden
             <a href="/news" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.news')}</a>
+            */}
             <a href="/reviews" className="text-sm font-medium text-gray-700 hover:text-green-600 transition-colors">{t('navigation.reviews')}</a>
-            <div className="auth-buttons flex items-center">
-              <LanguageSwitcher />
-            </div>
+            {/* Language switcher removed */}
           </nav>
           <div className="md:hidden flex items-center">
             <div className="md:hidden">
@@ -91,7 +90,7 @@ function Navigation() {
         <div className="space-y-1 px-2 pb-3 pt-2">
           <a href="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.home')}</a>
           <a href="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.about')}</a>
-          <a href="/products" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.products')}</a>
+          {/* Products page hidden */}
           <a href="/gallery" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.gallery')}</a>
           {/* Temporarily hidden
           <a href="/reservations" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.reservations')}</a>
@@ -99,13 +98,11 @@ function Navigation() {
           */}
           <a href="/location" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.location')}</a>
           <a href="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.contact')}</a>
+          {/* Temporarily hidden
           <a href="/news" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.news')}</a>
+          */}
           <a href="/reviews" className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-green-600 rounded-md">{t('navigation.reviews')}</a>
-          <div className="px-3 py-2">
-            <div className="auth-buttons flex items-center space-x-4">
-              <LanguageSwitcher />
-            </div>
-          </div>
+          {/* Language switcher removed */}
         </div>
       </div>
     </header>
@@ -137,10 +134,7 @@ export default function RootLayout({
                   <div className="space-y-3">
                     <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">{t('footer.shop')}</h3>
                     <ul className="space-y-2">
-                      <li><a href="/products" className="text-sm text-gray-600 hover:text-green-600">{t('footer.all_products')}</a></li>
-                      <li><a href="/products#fresh-produce" className="text-sm text-gray-600 hover:text-green-600">{t('footer.fresh_produce')}</a></li>
-                      <li><a href="/products#bakery" className="text-sm text-gray-600 hover:text-green-600">{t('footer.bakery')}</a></li>
-                      <li><a href="/products#dairy-cheese" className="text-sm text-gray-600 hover:text-green-600">{t('footer.dairy_cheese')}</a></li>
+                      {/* Products links hidden in footer */}
                     </ul>
                   </div>
                   <div className="space-y-3">
@@ -149,7 +143,9 @@ export default function RootLayout({
                       <li><a href="/about" className="text-sm text-gray-600 hover:text-green-600">{t('footer.about_us')}</a></li>
                       <li><a href="/location" className="text-sm text-gray-600 hover:text-green-600">{t('footer.location_hours')}</a></li>
                       <li><a href="/contact" className="text-sm text-gray-600 hover:text-green-600">{t('footer.contact_us')}</a></li>
+                      {/* Temporarily hidden
                       <li><a href="/news" className="text-sm text-gray-600 hover:text-green-600">{t('footer.news_events')}</a></li>
+                      */}
                       <li><a href="/reviews" className="text-sm text-gray-600 hover:text-green-600">{t('footer.reviews')}</a></li>
                       <li><a href="/gallery" className="text-sm text-gray-600 hover:text-green-600">{t('footer.gallery')}</a></li>
                       {/* Temporarily hidden

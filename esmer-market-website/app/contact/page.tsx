@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function ContactPage() {
@@ -12,8 +12,42 @@ export default function ContactPage() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'rate_limited'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
+  
+  // Check for rate limiting on component mount
+  useEffect(() => {
+    const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
+    if (lastSubmissionTime) {
+      const lastSubmission = parseInt(lastSubmissionTime, 10);
+      const currentTime = Date.now();
+      const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
+      
+      if (currentTime - lastSubmission < hourInMs) {
+        const remainingTime = hourInMs - (currentTime - lastSubmission);
+        setSubmitStatus('rate_limited');
+        setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
+        
+        // Set up timer to update remaining time
+        const timer = setInterval(() => {
+          const newLastSubmission = parseInt(localStorage.getItem('lastContactSubmission') || '0', 10);
+          const newCurrentTime = Date.now();
+          const newRemainingTime = hourInMs - (newCurrentTime - newLastSubmission);
+          
+          if (newRemainingTime <= 0) {
+            setSubmitStatus('idle');
+            setTimeRemaining(null);
+            clearInterval(timer);
+          } else {
+            setTimeRemaining(Math.ceil(newRemainingTime / (60 * 1000)));
+          }
+        }, 60000); // Update every minute
+        
+        return () => clearInterval(timer);
+      }
+    }
+  }, []);
   
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -22,6 +56,22 @@ export default function ContactPage() {
   
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    // Check if rate limited
+    const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
+    if (lastSubmissionTime) {
+      const lastSubmission = parseInt(lastSubmissionTime, 10);
+      const currentTime = Date.now();
+      const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
+      
+      if (currentTime - lastSubmission < hourInMs) {
+        const remainingTime = hourInMs - (currentTime - lastSubmission);
+        setSubmitStatus('rate_limited');
+        setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
+        return;
+      }
+    }
+    
     setIsSubmitting(true);
     setSubmitStatus('idle');
     setErrorMessage('');
@@ -39,6 +89,9 @@ export default function ContactPage() {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to send message');
       }
+      
+      // Store submission time in localStorage
+      localStorage.setItem('lastContactSubmission', Date.now().toString());
       
       setSubmitStatus('success');
       setFormData({
@@ -96,6 +149,15 @@ export default function ContactPage() {
                 </div>
               )}
               
+              {submitStatus === 'rate_limited' && (
+                <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-md text-yellow-800">
+                  <p className="font-medium">Mesaj limiti aşıldı</p>
+                  <p className="text-sm mt-1">
+                    Bir saat içinde sadece bir mesaj gönderebilirsiniz. Lütfen {timeRemaining} dakika sonra tekrar deneyiniz.
+                  </p>
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
@@ -108,7 +170,8 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    disabled={submitStatus === 'rate_limited'}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 disabled:bg-gray-100 disabled:text-gray-500"
                   />
                 </div>
                 
@@ -123,7 +186,8 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    disabled={submitStatus === 'rate_limited'}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 disabled:bg-gray-100 disabled:text-gray-500"
                   />
                 </div>
                 
@@ -137,7 +201,8 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    disabled={submitStatus === 'rate_limited'}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 disabled:bg-gray-100 disabled:text-gray-500"
                   >
                     <option value="">{t('contact.form.fields.subject_placeholder')}</option>
                     <option value="general">{t('contact.form.fields.subject_options.general')}</option>
@@ -159,19 +224,20 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    disabled={submitStatus === 'rate_limited'}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 disabled:bg-gray-100 disabled:text-gray-500"
                   ></textarea>
                 </div>
                 
                 <div>
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || submitStatus === 'rate_limited'}
                     className={`w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 ${
-                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                      (isSubmitting || submitStatus === 'rate_limited') ? 'opacity-75 cursor-not-allowed' : ''
                     }`}
                   >
-                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
+                    {isSubmitting ? t('contact.form.submitting') : submitStatus === 'rate_limited' ? 'Mesaj limiti aşıldı' : t('contact.form.submit')}
                   </button>
                 </div>
               </form>
