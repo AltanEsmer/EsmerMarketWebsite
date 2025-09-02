@@ -5,9 +5,11 @@ import nodemailer from 'nodemailer';
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
+  let body: any = {};
+  
   try {
     // Parse the request body
-    const body = await request.json();
+    body = await request.json();
     const { name, email, subject, message, recaptchaToken } = body;
 
     // Validate required fields
@@ -148,10 +150,10 @@ export async function POST(request: Request) {
     
     // If email fails, still log the submission with the original form data
     console.log('Email failed, but logging contact form submission:', { 
-      name: body.name, 
-      email: body.email, 
-      subject: body.subject, 
-      message: body.message,
+      name: body?.name || 'Unknown', 
+      email: body?.email || 'Unknown', 
+      subject: body?.subject || 'Unknown', 
+      message: body?.message || 'Unknown',
       timestamp: new Date().toISOString(),
       error: error instanceof Error ? error.message : 'Unknown error'
     });

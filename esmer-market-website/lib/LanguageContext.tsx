@@ -6,16 +6,18 @@ import { useTranslation } from 'react-i18next';
 
 type LanguageContextType = {
   language: string;
+  setLanguage: (lang: string) => void;
 };
 
 const LanguageContext = createContext<LanguageContextType>({
   language: 'tr',
+  setLanguage: () => {},
 });
 
 export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  const [language] = useState('tr');
+  const [language, setLanguage] = useState('tr');
   const { i18n } = useTranslation();
 
   // Set language to Turkish on mount
@@ -24,8 +26,14 @@ export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ childr
     document.documentElement.lang = 'tr'; // Update html lang attribute
   }, [i18n]);
 
+  const handleSetLanguage = (lang: string) => {
+    setLanguage(lang);
+    i18n.changeLanguage(lang);
+    document.documentElement.lang = lang;
+  };
+
   return (
-    <LanguageContext.Provider value={{ language }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

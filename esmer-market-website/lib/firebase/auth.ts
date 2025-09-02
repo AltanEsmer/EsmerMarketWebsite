@@ -45,11 +45,12 @@ export const signIn = async (email: string, password: string) => {
     return { user: userCredential.user, error: null };
   } catch (error: unknown) {
     console.error("Error signing in:", error);
-    console.error("Error code:", error.code);
-    console.error("Error message:", error.message);
+    if (error instanceof Error) {
+      console.error("Error message:", error.message);
+    }
     return { 
       user: null, 
-      error: error.code === 'auth/invalid-credential' 
+      error: (error as any)?.code === 'auth/invalid-credential' 
         ? 'E-posta veya şifre yanlış.' 
         : 'Giriş yapılırken bir hata oluştu.'
     };
