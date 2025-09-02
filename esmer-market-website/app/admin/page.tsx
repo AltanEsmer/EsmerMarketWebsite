@@ -1,14 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "../components/AuthProvider";
 import { signOut } from "../../lib/firebase/auth";
 
 export default function AdminPage() {
   const { user, loading } = useAuth();
-  const router = useRouter();
   
   // No client-side redirects - rely on middleware
   
@@ -83,11 +80,6 @@ export default function AdminPage() {
               <Link href="/admin/products" className="block p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors">
                 <h2 className="text-xl font-semibold text-gray-900 mb-2">Ürünler</h2>
                 <p className="text-gray-600">Ürün kategorilerini ve ürünleri yönet.</p>
-              </Link>
-              
-              <Link href="/admin/reservations" className="block p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">Rezervasyonlar</h2>
-                <p className="text-gray-600">Müşteri rezervasyonlarını görüntüle ve yönet.</p>
               </Link>
               
               <Link href="/admin/settings" className="block p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:bg-gray-50 transition-colors">

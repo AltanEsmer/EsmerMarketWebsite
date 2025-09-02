@@ -1,8 +1,6 @@
 "use client";
 
-import { Metadata } from "next";
 import Link from "next/link";
-import ProductList from "../components/ProductList";
 
 export default function ProductsPage() {
 

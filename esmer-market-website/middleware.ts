@@ -19,10 +19,10 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
   
-  // Redirect from virtual tour page
-  if (pathname === '/gallery/virtual-tour' || pathname.startsWith('/gallery/virtual-tour/')) {
-    console.log('Middleware: Redirecting from virtual tour page to gallery');
-    const url = new URL('/gallery', request.url);
+  // Redirect from news page
+  if (pathname === '/news' || pathname.startsWith('/news/')) {
+    console.log('Middleware: Redirecting from news page to home');
+    const url = new URL('/', request.url);
     return NextResponse.redirect(url);
   }
   

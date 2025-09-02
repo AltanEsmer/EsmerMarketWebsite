@@ -3,7 +3,6 @@ import {
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User,
-  Auth,
   getIdToken
 } from 'firebase/auth';
 import { auth as firebaseAuth } from './firebaseConfig';
@@ -44,7 +43,7 @@ export const signIn = async (email: string, password: string) => {
     console.log("ID token stored in cookie");
     
     return { user: userCredential.user, error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error signing in:", error);
     console.error("Error code:", error.code);
     console.error("Error message:", error.message);
@@ -67,7 +66,7 @@ export const signOut = async () => {
     deleteCookie('firebase-id-token');
     console.log("Signed out and cleared cookies");
     return { success: true, error: null };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error signing out:", error);
     return { success: false, error: 'Çıkış yapılırken bir hata oluştu.' };
   }

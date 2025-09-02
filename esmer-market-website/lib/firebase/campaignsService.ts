@@ -69,7 +69,7 @@ export async function updateCampaign(id: string, campaignData: Partial<Omit<Camp
     const campaignRef = doc(db as Firestore, COLLECTION_NAME, id);
     
     // Tarihleri Timestamp'e dönüştür
-    let updateData = { ...campaignData, updatedAt: serverTimestamp() };
+    const updateData = { ...campaignData, updatedAt: serverTimestamp() };
     
     if (updateData.startDate && typeof updateData.startDate === 'string') {
       updateData.startDate = new Date(updateData.startDate);

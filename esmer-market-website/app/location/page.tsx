@@ -2,7 +2,7 @@
 
 import IsOpenIndicator from "../components/IsOpenIndicator";
 import { useTranslation } from "react-i18next";
-import { getStoreStatus } from "../utils/hours";
+// import { getStoreStatus } from "../utils/hours";
 
 export default function LocationPage() {
   // Location coordinates for Esmer Market (35°13'20.2"N 33°53'39.2"E)

@@ -6,9 +6,16 @@ import { useRouter } from "next/navigation";
 import { getCampaignById, updateCampaign } from "../../../../lib/firebase/campaignsService";
 import { Campaign } from "../../../../lib/firebase/campaignsService";
 
-export default function EditCampaignPage({ params }: { params: { id: string } }) {
+export default function EditCampaignPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
-  const { id } = params;
+  const [id, setId] = useState<string>('');
+  
+  // Resolve params
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      setId(resolvedParams.id);
+    });
+  }, [params]);
   
   const [formData, setFormData] = useState<Campaign>({
     id: "",

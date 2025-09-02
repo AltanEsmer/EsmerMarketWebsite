@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "../../components/AuthProvider";
 import { getFirestore, doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, deleteUser, User } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 interface SiteSettings {
   storeName: string;
@@ -406,7 +406,7 @@ export default function AdminSettingsPage() {
                       </div>
                       
                       <p className="text-sm text-gray-500">
-                        Not: Çalışma saatlerini "08:00 - 19:00" formatında girin. Kapalı günler için "Kapalı" yazın.
+                        Not: Çalışma saatlerini &quot;08:00 - 19:00&quot; formatında girin. Kapalı günler için &quot;Kapalı&quot; yazın.
                       </p>
                     </div>
                   </div>

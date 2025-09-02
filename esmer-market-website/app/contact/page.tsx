@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent, useEffect } from 'react';
+import { useState, FormEvent, ChangeEvent, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactPage() {
   const { t } = useTranslation();
@@ -15,61 +16,75 @@ export default function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'rate_limited'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [timeRemaining, setTimeRemaining] = useState<number | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   
-  // Check for rate limiting on component mount
+  // Check for rate limiting on component mount - TEMPORARILY DISABLED
   useEffect(() => {
-    const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
-    if (lastSubmissionTime) {
-      const lastSubmission = parseInt(lastSubmissionTime, 10);
-      const currentTime = Date.now();
-      const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
-      
-      if (currentTime - lastSubmission < hourInMs) {
-        const remainingTime = hourInMs - (currentTime - lastSubmission);
-        setSubmitStatus('rate_limited');
-        setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
-        
-        // Set up timer to update remaining time
-        const timer = setInterval(() => {
-          const newLastSubmission = parseInt(localStorage.getItem('lastContactSubmission') || '0', 10);
-          const newCurrentTime = Date.now();
-          const newRemainingTime = hourInMs - (newCurrentTime - newLastSubmission);
-          
-          if (newRemainingTime <= 0) {
-            setSubmitStatus('idle');
-            setTimeRemaining(null);
-            clearInterval(timer);
-          } else {
-            setTimeRemaining(Math.ceil(newRemainingTime / (60 * 1000)));
-          }
-        }, 60000); // Update every minute
-        
-        return () => clearInterval(timer);
-      }
-    }
+    // Rate limiting temporarily disabled for testing
+    // const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
+    // if (lastSubmissionTime) {
+    //   const lastSubmission = parseInt(lastSubmissionTime, 10);
+    //   const currentTime = Date.now();
+    //   const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
+    //   
+    //   if (currentTime - lastSubmission < hourInMs) {
+    //     const remainingTime = hourInMs - (currentTime - lastSubmission);
+    //     setSubmitStatus('rate_limited');
+    //     setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
+    //     
+    //     // Set up timer to update remaining time
+    //     const timer = setInterval(() => {
+    //       const newLastSubmission = parseInt(localStorage.getItem('lastContactSubmission') || '0', 10);
+    //       const newCurrentTime = Date.now();
+    //       const newRemainingTime = hourInMs - (newCurrentTime - newLastSubmission);
+    //       
+    //       if (newRemainingTime <= 0) {
+    //         setSubmitStatus('idle');
+    //         setTimeRemaining(null);
+    //         clearInterval(timer);
+    //       } else {
+    //         setTimeRemaining(Math.ceil(newRemainingTime / (60 * 1000)));
+    //       }
+    //     }, 60000); // Update every minute
+    //     
+    //     return () => clearInterval(timer);
+    //   }
+    // }
   }, []);
   
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
   
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
-    // Check if rate limited
-    const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
-    if (lastSubmissionTime) {
-      const lastSubmission = parseInt(lastSubmissionTime, 10);
-      const currentTime = Date.now();
-      const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
-      
-      if (currentTime - lastSubmission < hourInMs) {
-        const remainingTime = hourInMs - (currentTime - lastSubmission);
-        setSubmitStatus('rate_limited');
-        setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
-        return;
-      }
+    // Check if rate limited - TEMPORARILY DISABLED
+    // const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
+    // if (lastSubmissionTime) {
+    //   const lastSubmission = parseInt(lastSubmissionTime, 10);
+    //   const currentTime = Date.now();
+    //   const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
+    //   
+    //   if (currentTime - lastSubmission < hourInMs) {
+    //     const remainingTime = hourInMs - (currentTime - lastSubmission);
+    //     setSubmitStatus('rate_limited');
+    //     setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
+    //     return;
+    //   }
+    // }
+
+    // Check if reCAPTCHA is completed
+    if (!recaptchaToken) {
+      setSubmitStatus('error');
+      setErrorMessage('Lütfen reCAPTCHA doğrulamasını tamamlayın.');
+      return;
     }
     
     setIsSubmitting(true);
@@ -82,16 +97,33 @@ export default function ContactPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
       });
       
       if (!response.ok) {
-        const errorData = await response.json();
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch {
+          // If response is not valid JSON, create a generic error
+          errorData = { message: 'Server error occurred. Please try again.' };
+        }
         throw new Error(errorData.message || 'Failed to send message');
       }
       
-      // Store submission time in localStorage
-      localStorage.setItem('lastContactSubmission', Date.now().toString());
+      // Parse the response
+      try {
+        await response.json();
+      } catch {
+        // If response is not valid JSON, assume success
+        console.log('Response was not valid JSON, assuming success');
+      }
+      
+      // Store submission time in localStorage - TEMPORARILY DISABLED
+      // localStorage.setItem('lastContactSubmission', Date.now().toString());
       
       setSubmitStatus('success');
       setFormData({
@@ -100,9 +132,11 @@ export default function ContactPage() {
         subject: '',
         message: '',
       });
-    } catch (error: any) {
+      setRecaptchaToken(null);
+      recaptchaRef.current?.reset();
+    } catch (error: unknown) {
       setSubmitStatus('error');
-      setErrorMessage(error.message || 'An error occurred while sending your message');
+      setErrorMessage((error as Error).message || 'An error occurred while sending your message');
       console.error('Contact form error:', error);
     } finally {
       setIsSubmitting(false);
@@ -230,11 +264,21 @@ export default function ContactPage() {
                 </div>
                 
                 <div>
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+                    onChange={handleRecaptchaChange}
+                    theme="light"
+                    size="normal"
+                  />
+                </div>
+                
+                <div>
                   <button
                     type="submit"
-                    disabled={isSubmitting || submitStatus === 'rate_limited'}
+                    disabled={isSubmitting || submitStatus === 'rate_limited' || !recaptchaToken}
                     className={`w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 ${
-                      (isSubmitting || submitStatus === 'rate_limited') ? 'opacity-75 cursor-not-allowed' : ''
+                      (isSubmitting || submitStatus === 'rate_limited' || !recaptchaToken) ? 'opacity-75 cursor-not-allowed' : ''
                     }`}
                   >
                     {isSubmitting ? t('contact.form.submitting') : submitStatus === 'rate_limited' ? 'Mesaj limiti aşıldı' : t('contact.form.submit')}
