@@ -1,5 +1,5 @@
 [build]
-  command = "cd esmer-market-website && npm run build"
+  command = "cd esmer-market-website && npm install && npm run build"
   publish = "esmer-market-website/out"
   functions = "esmer-market-website/netlify/functions"
 
