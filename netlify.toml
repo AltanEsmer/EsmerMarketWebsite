@@ -1,0 +1,9 @@
+[build]
+  command = "cd esmer-market-website && npm run build"
+  publish = "esmer-market-website/out"
+  functions = "esmer-market-website/netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18.20.4"
+  NPM_VERSION = "10.5.2"
+  NODE_OPTIONS = "--max_old_space_size=4096"
