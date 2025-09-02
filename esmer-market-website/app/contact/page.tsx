@@ -19,38 +19,37 @@ export default function ContactPage() {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   
-  // Check for rate limiting on component mount - TEMPORARILY DISABLED
+  // Check for rate limiting on component mount
   useEffect(() => {
-    // Rate limiting temporarily disabled for testing
-    // const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
-    // if (lastSubmissionTime) {
-    //   const lastSubmission = parseInt(lastSubmissionTime, 10);
-    //   const currentTime = Date.now();
-    //   const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
-    //   
-    //   if (currentTime - lastSubmission < hourInMs) {
-    //     const remainingTime = hourInMs - (currentTime - lastSubmission);
-    //     setSubmitStatus('rate_limited');
-    //     setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
-    //     
-    //     // Set up timer to update remaining time
-    //     const timer = setInterval(() => {
-    //       const newLastSubmission = parseInt(localStorage.getItem('lastContactSubmission') || '0', 10);
-    //       const newCurrentTime = Date.now();
-    //       const newRemainingTime = hourInMs - (newCurrentTime - newLastSubmission);
-    //       
-    //       if (newRemainingTime <= 0) {
-    //         setSubmitStatus('idle');
-    //         setTimeRemaining(null);
-    //         clearInterval(timer);
-    //       } else {
-    //         setTimeRemaining(Math.ceil(newRemainingTime / (60 * 1000)));
-    //       }
-    //     }, 60000); // Update every minute
-    //     
-    //     return () => clearInterval(timer);
-    //   }
-    // }
+    const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
+    if (lastSubmissionTime) {
+      const lastSubmission = parseInt(lastSubmissionTime, 10);
+      const currentTime = Date.now();
+      const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
+      
+      if (currentTime - lastSubmission < hourInMs) {
+        const remainingTime = hourInMs - (currentTime - lastSubmission);
+        setSubmitStatus('rate_limited');
+        setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
+        
+        // Set up timer to update remaining time
+        const timer = setInterval(() => {
+          const newLastSubmission = parseInt(localStorage.getItem('lastContactSubmission') || '0', 10);
+          const newCurrentTime = Date.now();
+          const newRemainingTime = hourInMs - (newCurrentTime - newLastSubmission);
+          
+          if (newRemainingTime <= 0) {
+            setSubmitStatus('idle');
+            setTimeRemaining(null);
+            clearInterval(timer);
+          } else {
+            setTimeRemaining(Math.ceil(newRemainingTime / (60 * 1000)));
+          }
+        }, 60000); // Update every minute
+        
+        return () => clearInterval(timer);
+      }
+    }
   }, []);
   
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -65,20 +64,20 @@ export default function ContactPage() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
-    // Check if rate limited - TEMPORARILY DISABLED
-    // const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
-    // if (lastSubmissionTime) {
-    //   const lastSubmission = parseInt(lastSubmissionTime, 10);
-    //   const currentTime = Date.now();
-    //   const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
-    //   
-    //   if (currentTime - lastSubmission < hourInMs) {
-    //     const remainingTime = hourInMs - (currentTime - lastSubmission);
-    //     setSubmitStatus('rate_limited');
-    //     setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
-    //     return;
-    //   }
-    // }
+    // Check if rate limited
+    const lastSubmissionTime = localStorage.getItem('lastContactSubmission');
+    if (lastSubmissionTime) {
+      const lastSubmission = parseInt(lastSubmissionTime, 10);
+      const currentTime = Date.now();
+      const hourInMs = 60 * 60 * 1000; // 1 hour in milliseconds
+      
+      if (currentTime - lastSubmission < hourInMs) {
+        const remainingTime = hourInMs - (currentTime - lastSubmission);
+        setSubmitStatus('rate_limited');
+        setTimeRemaining(Math.ceil(remainingTime / (60 * 1000))); // Convert to minutes
+        return;
+      }
+    }
 
     // Check if reCAPTCHA is completed
     if (!recaptchaToken) {
@@ -122,8 +121,8 @@ export default function ContactPage() {
         console.log('Response was not valid JSON, assuming success');
       }
       
-      // Store submission time in localStorage - TEMPORARILY DISABLED
-      // localStorage.setItem('lastContactSubmission', Date.now().toString());
+      // Store submission time in localStorage
+      localStorage.setItem('lastContactSubmission', Date.now().toString());
       
       setSubmitStatus('success');
       setFormData({
