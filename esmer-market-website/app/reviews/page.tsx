@@ -254,21 +254,32 @@ export default function ReviewsPage() {
                   <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-green-500"></div>
                 </div>
               ) : reviews.length === 0 ? (
-                <p className="text-gray-600">Henüz yorum yapılmamış.</p>
+                <div>
+                  <p className="text-gray-600">Henüz yorum yapılmamış.</p>
+                  <p className="text-sm text-gray-500 mt-2">Debug: No reviews found</p>
+                </div>
               ) : (
                 <div className="space-y-6">
+                  {console.log('Reviews loaded:', reviews.length, 'reviews')}
                   {reviews.map((review) => (
                     <div key={review.id} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                       <div className="flex items-start">
                         <div className="flex-shrink-0 mr-4">
-                          <div className="h-10 w-10 rounded-full overflow-hidden bg-gray-200">
-                            <Image
-                              src={review.avatar || "/images/team.jpg"}
-                              alt={`${review.name} avatar`}
-                              width={40}
-                              height={40}
-                              className="object-cover"
-                            />
+                          <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
+                            <svg
+                              className="h-6 w-6 text-green-600"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                              />
+                            </svg>
                           </div>
                         </div>
                         <div className="flex-1">

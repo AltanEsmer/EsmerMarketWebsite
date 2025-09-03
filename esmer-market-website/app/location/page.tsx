@@ -63,6 +63,11 @@ export default function LocationPage() {
                       </tr>
                     </tbody>
                   </table>
+                  <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
+                    <p className="text-sm text-blue-800 font-medium">
+                      Av döneminde marketimiz sabah 4:00 dan itibaren açıktır.
+                    </p>
+                  </div>
                 </div>
               </div>
               

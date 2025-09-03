@@ -78,7 +78,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">Adres</h3>
-                <p className="text-gray-600">Yenikent Bulvarı, Yeni Boğaziçi</p>
+                <p className="text-gray-600">Yenikent Bulvarı, Yeni Boğaziçi Ötüken Çemberi Öncesi</p>
               </div>
             </div>
           </div>
