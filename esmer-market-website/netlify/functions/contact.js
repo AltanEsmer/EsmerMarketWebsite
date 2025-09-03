@@ -154,13 +154,14 @@ exports.handler = async (event, context) => {
       await transporter.sendMail(mailOptions);
     } catch (emailError) {
       // Handle specific Gmail authentication errors
-      if (emailError.code === 'EAUTH' && emailError.responseCode === 534) {
+      if (emailError.code === 'EAUTH' && (emailError.responseCode === 534 || emailError.responseCode === 535)) {
         console.log('Gmail authentication failed - app-specific password required:', { 
           name, 
           email, 
           subject, 
           message,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
+          errorCode: emailError.responseCode
         });
         return {
           statusCode: 200,
@@ -205,11 +206,21 @@ exports.handler = async (event, context) => {
     console.error('Error processing contact form:', error);
     
     // If email fails, still log the submission with the original form data
+    let formData = {};
+    try {
+      const parsedBody = JSON.parse(event.body);
+      formData = {
+        name: parsedBody.name, 
+        email: parsedBody.email, 
+        subject: parsedBody.subject, 
+        message: parsedBody.message
+      };
+    } catch (parseError) {
+      console.error('Error parsing request body:', parseError);
+    }
+    
     console.log('Email failed, but logging contact form submission:', { 
-      name: body.name, 
-      email: body.email, 
-      subject: body.subject, 
-      message: body.message,
+      ...formData,
       timestamp: new Date().toISOString(),
       error: error.message || 'Unknown error'
     });
