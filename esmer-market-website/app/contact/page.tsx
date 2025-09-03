@@ -283,9 +283,9 @@ export default function ContactPage() {
                 <div>
                   <button
                     type="submit"
-                    disabled={isSubmitting || submitStatus === 'rate_limited' || (!recaptchaToken && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)}
+                    disabled={isSubmitting || submitStatus === 'rate_limited' || (!recaptchaToken && !!process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)}
                     className={`w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 ${
-                      (isSubmitting || submitStatus === 'rate_limited' || (!recaptchaToken && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)) ? 'opacity-75 cursor-not-allowed' : ''
+                      (isSubmitting || submitStatus === 'rate_limited' || (!recaptchaToken && !!process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY)) ? 'opacity-75 cursor-not-allowed' : ''
                     }`}
                   >
                     {isSubmitting ? t('contact.form.submitting') : submitStatus === 'rate_limited' ? 'Mesaj limiti aşıldı' : t('contact.form.submit')}

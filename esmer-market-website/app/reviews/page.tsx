@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { addReview, getReviews, formatReviewDate } from '../../lib/firebase/reviewsService';
 import { Timestamp } from 'firebase/firestore';
 
@@ -254,13 +253,9 @@ export default function ReviewsPage() {
                   <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-green-500"></div>
                 </div>
               ) : reviews.length === 0 ? (
-                <div>
-                  <p className="text-gray-600">Henüz yorum yapılmamış.</p>
-                  <p className="text-sm text-gray-500 mt-2">Debug: No reviews found</p>
-                </div>
+                <p className="text-gray-600">Henüz yorum yapılmamış.</p>
               ) : (
                 <div className="space-y-6">
-                  {console.log('Reviews loaded:', reviews.length, 'reviews')}
                   {reviews.map((review) => (
                     <div key={review.id} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                       <div className="flex items-start">
